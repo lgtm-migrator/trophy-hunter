@@ -1,4 +1,3 @@
-import { log } from '../../logs';
 import { getDatabase, getCollection } from '../../utils/server/db';
 import { TrophyStatsObj } from '../types';
 
@@ -7,7 +6,7 @@ export const createTrophyStatsCollection = async () => {
   const collections = await db.listCollections().toArray();
 
   if (collections.some((collection) => collection.name === 'trophy-stats')) {
-    log('trophy-stats Collection already exists');
+    console.log('trophy-stats Collection already exists');
     return;
   }
 
@@ -43,6 +42,6 @@ export const getTrophyStatsCollection = () => {
 };
 
 export const ensureTrophyStatsIndexes = () => {
-  log('Create trophy stats indexes');
+  console.log('Create trophy stats indexes');
   return getTrophyStatsCollection().createIndexes([{ key: { trophyName: 1 } }]);
 };

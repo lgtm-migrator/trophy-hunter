@@ -1,5 +1,4 @@
 import { ensureCron, onCron } from '../../cron/server/collection';
-import { log } from '../../logs';
 import { getDatabase, getCollection } from '../../utils/server/db';
 import { Mission } from '../types';
 import { startNewMission } from './functions';
@@ -9,7 +8,7 @@ export const createMissionsCollection = async () => {
   const collections = await db.listCollections().toArray();
 
   if (collections.some((collection) => collection.name === 'missions')) {
-    log('missions Collection already exists');
+    console.log('missions Collection already exists');
     return;
   }
 

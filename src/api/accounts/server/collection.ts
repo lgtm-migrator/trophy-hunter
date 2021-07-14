@@ -1,5 +1,4 @@
 import { SeasonAccount } from '..';
-import { log } from '../../logs';
 import { getDatabase, getCollection } from '../../utils/server/db';
 import { Account } from '../types';
 
@@ -8,7 +7,7 @@ export const createAccountsCollection = async () => {
   const collections = await db.listCollections().toArray();
 
   if (collections.some((collection) => collection.name === 'accounts')) {
-    log('accounts Collection already exists');
+    console.log('accounts Collection already exists');
     return;
   }
 
@@ -121,7 +120,7 @@ export const getAccountsCollection = () => {
 };
 
 export const ensureAccountsIndexes = () => {
-  log('Create accounts indexes');
+  console.log('Create accounts indexes');
   return getAccountsCollection().createIndexes([
     { key: { trophiesCompleted: -1, 'summoner.revisionDate': -1 } },
     { key: { 'summoner.platformId': 1, 'summoner.name': 1 } },
@@ -133,7 +132,7 @@ export const createSeasonAccountsCollection = async () => {
   const collections = await db.listCollections().toArray();
 
   if (collections.some((collection) => collection.name === 'season-accounts')) {
-    log('season-accounts Collection already exists');
+    console.log('season-accounts Collection already exists');
     return;
   }
 
@@ -204,7 +203,7 @@ export const getSeasonAccountsCollection = () => {
 };
 
 export const ensureSeasonAccountsIndexes = () => {
-  log('Create season accounts indexes');
+  console.log('Create season accounts indexes');
   return getSeasonAccountsCollection().createIndexes([
     { key: { season: 1, trophiesCompleted: -1, 'summoner.revisionDate': -1 } },
     { key: { 'summoner.accountId': 1 } },

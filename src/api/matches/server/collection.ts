@@ -1,4 +1,3 @@
-import { log } from '../../logs';
 import { getDatabase, getCollection } from '../../utils/server/db';
 import { HistoryMatch } from '../types';
 
@@ -7,7 +6,7 @@ export const createMatchesCollection = async () => {
   const collections = await db.listCollections().toArray();
 
   if (collections.some((collection) => collection.name === 'matches')) {
-    log('matches Collection already exists');
+    console.log('matches Collection already exists');
     return;
   }
 
@@ -64,7 +63,7 @@ export const getMatchesCollection = () => {
 };
 
 export const ensureMatchesIndexes = () => {
-  log('Create matches indexes');
+  console.log('Create matches indexes');
   return getMatchesCollection().createIndexes([
     { key: { accountId: 1, gameId: -1 }, unique: true },
   ]);

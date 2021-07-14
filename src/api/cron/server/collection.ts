@@ -1,5 +1,4 @@
 import { MongoCron } from 'mongodb-cron';
-import { log } from '../../logs';
 import { getCollection, getDatabase } from '../../utils/server/db';
 
 type Cron = {
@@ -12,7 +11,7 @@ export const getCronsCollection = () => {
 };
 
 export const ensureCronsIndexes = () => {
-  log('Create crons indexes');
+  console.log('Create crons indexes');
   return getCronsCollection().createIndexes([{ key: { type: 1 } }]);
 };
 
