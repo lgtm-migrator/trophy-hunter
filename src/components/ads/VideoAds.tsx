@@ -7,8 +7,8 @@ import overwolf, {
   isWindowStateVisible,
   isLeagueGameId,
 } from '../../api/overwolf';
-import { OwAd } from '../../../typings/owAds';
 import { log } from '../../api/logs';
+import type { OwAd } from '@overwolf/types/owads';
 
 const Container = styled.div`
   position: relative;

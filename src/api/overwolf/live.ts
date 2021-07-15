@@ -199,8 +199,8 @@ const handleLiveClientData = (liveClientData: {
 };
 
 const handleGameInfo = (gameInfo: {
-  matchStarted: 'true' | 'false';
-  matchId: string;
+  matchStarted?: 'true' | 'false';
+  matchId?: string;
 }) => {
   if (gameInfo.matchId) {
     live.matchId = gameInfo.matchId;
@@ -280,7 +280,7 @@ export const isPlayingSupportedGame = async (): Promise<false | number> => {
     let launcherInfoTimeoutId = null;
     const getLauncherInfo = (hideError = false) => {
       overwolf.games.launchers.events.getInfo(LEAGUE_LAUNCHER_ID, (info) => {
-        if (info.error || info.status === 'error' || !info.res) {
+        if (info.reason || info.status === 'error' || !info.res) {
           if (!hideError) {
             error('[launchers getInfo]', info);
           }
