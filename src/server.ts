@@ -72,17 +72,23 @@ app.get('/api/status', handleGetStatus);
 app.get('/api/trophy-stats/:name', handleGetTrophyStats);
 app.get('/api/version', handleGetVersion);
 
-const httpsServer = https.createServer(
-  {
-    key: fs.readFileSync('./certs/localhost.key'),
-    cert: fs.readFileSync('./certs/localhost.crt'),
-  },
-  app
-);
-
 initMongoDatabase().then(() => {
   console.log('Database connected');
-  httpsServer.listen(PORT, () => {
-    console.log(`Server listening at https://localhost:${PORT}`);
-  });
+  if (process.env.NODE_ENV === 'production') {
+    app.listen(PORT, () => {
+      console.log(`Production server listening at https://localhost:${PORT}`);
+    });
+  } else {
+    const httpsServer = https.createServer(
+      {
+        key: fs.readFileSync('./certs/localhost.key'),
+        cert: fs.readFileSync('./certs/localhost.crt'),
+      },
+      app
+    );
+
+    httpsServer.listen(PORT, () => {
+      console.log(`Development server listening at https://localhost:${PORT}`);
+    });
+  }
 });
