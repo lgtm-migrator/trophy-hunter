@@ -5,6 +5,8 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import https from 'https';
+import compression from 'compression';
+import helmet from 'helmet';
 
 import { initMongoDatabase } from './api/utils/server/db';
 import { handleGetAccount } from './server/account';
@@ -22,13 +24,16 @@ import { handleGetStats } from './server/stats';
 import { handleGetStatus } from './server/status';
 import { handleGetTrophyStats } from './server/trophy-stats';
 import { handleGetVersion } from './server/version';
-import compression from 'compression';
 
 const { PORT = 3001 } = process.env;
 
 const app = express();
 
+// Use gzip compression
 app.use(compression());
+
+// Protect from some well-known web vulnerabilities
+app.use(helmet());
 
 // Middleware that parses json and looks at requests where the Content-Type header matches the type option.
 app.use(express.json());
