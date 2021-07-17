@@ -1,45 +1,6 @@
-import { getAccountsCollection } from '../../accounts/server/collection';
 import { getChampions } from '../../riot/server';
-import { StatsObj, TrophyStatsAggregationObj } from '../types';
+import { TrophyStatsAggregationObj } from '../types';
 import { getTrophyStatsCollection } from './collection';
-
-type Stats = {
-  _id: string;
-  completed: number;
-  total: number;
-};
-
-export const getStatsObj = async () => {
-  const Accounts = await getAccountsCollection();
-  const stats = await Accounts.aggregate<Stats>([
-    {
-      $match: {
-        trophies: { $elemMatch: { name: 'playstyle', status: 'completed' } },
-      },
-    },
-    { $unwind: '$trophies' },
-    {
-      $group: {
-        _id: '$trophies.name',
-        completed: {
-          $sum: { $cond: [{ $eq: ['$trophies.status', 'completed'] }, 1, 0] },
-        },
-        total: { $sum: 1 },
-      },
-    },
-  ]).toArray();
-  const statsObj = stats.reduce<StatsObj>(
-    (previous, current) => ({
-      ...previous,
-      [current._id]: {
-        completed: current.completed,
-        total: current.total,
-      },
-    }),
-    {}
-  );
-  return statsObj;
-};
 
 export const getTrophyStats = async (trophyName: string) => {
   const champions = await getChampions();

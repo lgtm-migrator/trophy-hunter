@@ -1,5 +1,4 @@
 import { MongoClient, Db } from 'mongodb';
-import getConfig from 'next/config';
 import {
   createAccountsCollection,
   createSeasonAccountsCollection,
@@ -20,13 +19,11 @@ import {
   ensureTrophyStatsIndexes,
 } from '../../stats/server/collection';
 
-const { serverRuntimeConfig } = getConfig();
-
 let mongoDatabase: Db = null;
 
 export const initMongoDatabase = async () => {
   if (!mongoDatabase) {
-    const client = new MongoClient(serverRuntimeConfig.MONGO_URL, {
+    const client = new MongoClient(process.env.MONGO_URL, {
       useUnifiedTopology: true,
     });
 

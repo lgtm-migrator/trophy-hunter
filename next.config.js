@@ -16,6 +16,14 @@ const config = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://localhost:3001/api/:path*',
+      },
+    ];
+  },
 };
 
 if (process.env.TARGET === 'OVERWOLF') {

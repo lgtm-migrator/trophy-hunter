@@ -1,25 +1,29 @@
-### ARAM Test
-POST https://localhost:3000/api/dev
+@baseUrl = http://localhost:3001/api
+
+### Get logged in user
+GET {{baseUrl}}/account
+Content-Type: application/json
+
+### Check for logged in user
+POST {{baseUrl}}/check
 Content-Type: application/json
 
 {
-    "summonerName": "sirlunchalot619",
-    "platformId": "EUW1",
     "matchId": 5123274952
 }
 
-### Summoner's Rift Test
-POST https://localhost:3000/api/dev
+### Dev ARAM
+POST {{baseUrl}}/dev
 Content-Type: application/json
 
 {
-    "summonerName": "scarfaZeGX",
-    "platformId": "EUW1",
-    "matchId": 5061906845
+    "matchId": 5123274952,
+    "summonerName": "sirlunchalot619",
+    "platformId": "EUW1"
 }
 
-### Summoner's Rift Test
-POST https://localhost:3000/api/dev
+### Dev Summoner's Rift
+POST {{baseUrl}}/dev
 Content-Type: application/json
 
 {
@@ -28,9 +32,62 @@ Content-Type: application/json
     "matchId": 2687365610
 }
 
-### Trophy Stats
-GET https://localhost:3000/api/trophy-stats/test
+### Feedback
+POST {{baseUrl}}/feedback
+Content-Type: application/json
 
-### Fix
+{
+    "discordTag": "CoachLeon#4001",
+    "summonerName": "sirlunchalot619",
+    "platformId": "EUW1",
+    "message": "Awesome!"
+}
 
-GET https://localhost:3000/api/fix
+### Get champion image
+GET {{baseUrl}}/champions/69/img
+
+
+### Login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "summonerName": "sirlunchalot619",
+    "platformId": "EUW1"
+}
+
+### Matches for logged in user
+GET {{baseUrl}}/matches
+
+### Matches for any user
+GET {{baseUrl}}/matches?summonerName=sirlunchalot619&platformId=EUW1
+
+### Matches for any user with filter
+GET {{baseUrl}}/matches?summonerName=sirlunchalot619&platformId=EUW1&onlyWithTrophies=true&page=1
+
+### Mission
+GET {{baseUrl}}/mission
+
+### Public account
+GET {{baseUrl}}/public-account?summonerName=sirlunchalot619&platformId=EUW1
+
+### Rankings by summonerName
+GET {{baseUrl}}/rankings?season=11&summonerName=sirlunchalot619
+
+### Rankings by page
+GET {{baseUrl}}/rankings?season=11&page=1
+
+### Season account
+GET {{baseUrl}}/season-account?season=11
+
+### Stats
+GET {{baseUrl}}/stats
+
+### Status
+GET {{baseUrl}}/status
+
+### Trophy stats
+GET {{baseUrl}}/trophy-stats/theZombie
+
+### Version
+GET {{baseUrl}}/version

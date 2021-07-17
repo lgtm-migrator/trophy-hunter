@@ -1,13 +1,7 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import {
-  applyMiddleware,
-  withError,
-  withMethods,
-  withDatabase,
-} from '../../api/utils/server/middleware';
-import { getAccountsCollection } from '../../api/accounts/server/collection';
+import { Request, Response } from 'express';
+import { getAccountsCollection } from '../api/accounts/server/collection';
 
-const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
+export const handleGetAccount = async (req: Request, res: Response) => {
   const { authToken } = req.cookies;
   if (!authToken) {
     return res.status(401).end('Unauthorized');
@@ -42,10 +36,3 @@ const handleGet = async (req: NextApiRequest, res: NextApiResponse) => {
     }).count()) + 1;
   res.json(account);
 };
-
-export default applyMiddleware(
-  handleGet,
-  withError,
-  withMethods('GET'),
-  withDatabase
-);

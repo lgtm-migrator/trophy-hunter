@@ -7,8 +7,8 @@ import {
 import { Ranking } from '../types';
 import { Collection, FilterQuery } from 'mongodb';
 import { Account, AccountTrophy } from '..';
-import { currentSeason } from '../../riot/server';
 import { Trophy } from '../../../components/trophies/types';
+import { currentSeason } from '../../../server/version';
 
 export const isLevelNearlyCompleted = (
   level: Level,
