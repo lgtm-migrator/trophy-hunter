@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3001/api
+@baseUrl = https://localhost:3001/api
 
 ### Get logged in user
 GET {{baseUrl}}/account

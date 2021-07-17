@@ -22,10 +22,13 @@ import { handleGetStats } from './server/stats';
 import { handleGetStatus } from './server/status';
 import { handleGetTrophyStats } from './server/trophy-stats';
 import { handleGetVersion } from './server/version';
+import compression from 'compression';
 
 const { PORT = 3001 } = process.env;
 
 const app = express();
+
+app.use(compression());
 
 // Middleware that parses json and looks at requests where the Content-Type header matches the type option.
 app.use(express.json());
