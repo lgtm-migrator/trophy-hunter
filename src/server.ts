@@ -46,7 +46,7 @@ app.use((req, res, next) => {
   res.setHeader(
     'Access-Control-Allow-Origin',
     req.hostname === 'localhost'
-      ? 'http://localhost:3002'
+      ? 'http://localhost:3000'
       : `overwolf-extension://${process.env.OVERWOLF_EXTENSION_ID}`
   );
   res.setHeader('Access-Control-Allow-Credentials', 'true');

@@ -20,7 +20,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/trophy-hunter-bg-logo.png);
+  background-image: url(./trophy-hunter-bg-logo.png);
   background-repeat: no-repeat;
   background-position: center;
 `;
