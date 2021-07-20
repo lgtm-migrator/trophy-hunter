@@ -5,7 +5,7 @@ import {
   getSeasonAccountsCollection,
 } from './collection';
 import { Ranking } from '../types';
-import { Collection, FilterQuery } from 'mongodb';
+import { Collection, Filter } from 'mongodb';
 import { Account, AccountTrophy } from '..';
 import { Trophy } from '../../../components/trophies/types';
 import { currentSeason } from '../../../../server/version';
@@ -25,7 +25,7 @@ export const getRankings = async (season: string, page: number) => {
   const Accounts = (await (season !== currentSeason
     ? getSeasonAccountsCollection()
     : getAccountsCollection())) as Collection<Account>;
-  const query: FilterQuery<Account> = { trophiesCompleted: { $gt: 0 } };
+  const query: Filter<Account> = { trophiesCompleted: { $gt: 0 } };
   if (season !== currentSeason) {
     query.season = season;
   }
@@ -67,7 +67,7 @@ export const searchRankingBySummonerName = async (
   const Accounts = (await (season !== currentSeason
     ? getSeasonAccountsCollection()
     : getAccountsCollection())) as Collection<Account>;
-  const query: FilterQuery<Account> = {
+  const query: Filter<Account> = {
     'summoner.name': new RegExp(summonerName, 'i'),
     trophiesCompleted: { $gt: 0 },
   };

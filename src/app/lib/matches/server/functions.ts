@@ -1,4 +1,4 @@
-import type { FilterQuery } from 'mongodb';
+import type { Filter } from 'mongodb';
 import type { HistoryMatch } from '../types';
 import { getMatchesCollection } from './collection';
 
@@ -9,7 +9,7 @@ export const getHistoryMatches = async (
   page: number
 ) => {
   const Matches = await getMatchesCollection();
-  const query: FilterQuery<HistoryMatch> = {
+  const query: Filter<HistoryMatch> = {
     accountId,
   };
   if (onlyWithTrophies) {

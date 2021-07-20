@@ -64,7 +64,8 @@ export const getMatchesCollection = () => {
 
 export const ensureMatchesIndexes = () => {
   console.log('Create matches indexes');
-  return getMatchesCollection().createIndexes([
-    { key: { accountId: 1, gameId: -1 }, unique: true },
-  ]);
+  return getMatchesCollection().createIndex(
+    { accountId: 1, gameId: -1 },
+    { unique: true }
+  );
 };

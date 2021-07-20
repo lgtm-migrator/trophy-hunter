@@ -65,7 +65,7 @@ export const handlePostLogin = async (req: Request, res: Response) => {
     },
     {
       upsert: true,
-      returnOriginal: false,
+      returnDocument: 'after',
     }
   );
 

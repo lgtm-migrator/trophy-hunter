@@ -23,9 +23,7 @@ let mongoDatabase: Db = null;
 
 export const initMongoDatabase = async () => {
   if (!mongoDatabase) {
-    const client = new MongoClient(process.env.MONGO_URL, {
-      useUnifiedTopology: true,
-    });
+    const client = new MongoClient(process.env.MONGO_URL);
 
     await client.connect();
     mongoDatabase = client.db();

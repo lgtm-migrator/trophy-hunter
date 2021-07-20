@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { FilterQuery } from 'mongodb';
+import { Filter } from 'mongodb';
 import { getAccountsCollection } from '../app/lib//accounts/server/collection';
 import type { Account } from '../app/lib//accounts/types';
 import { getHistoryMatches } from '../app/lib//matches/server/functions';
@@ -16,7 +16,7 @@ export const handleGetMatches = async (req: Request, res: Response) => {
     : false;
   const page = pageString ? +pageString : 0;
 
-  let query: FilterQuery<Account> = {
+  let query: Filter<Account> = {
     'summoner.name': summonerName,
     'summoner.platformId': platformId,
   };
