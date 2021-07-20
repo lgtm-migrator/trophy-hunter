@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import {
   getRankings,
   searchRankingBySummonerName,
-} from '../api/accounts/server/functions';
+} from '../app/lib//accounts/server/functions';
 
 export const handleGetRankings = async (req: Request, res: Response) => {
   const { season, page: pageString, summonerName } = req.query;

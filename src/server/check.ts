@@ -1,32 +1,39 @@
 import { Request, Response } from 'express';
 import Ajv from 'ajv';
-import { getAccountsCollection } from '../api/accounts/server/collection';
-import * as levels from '../components/islands/levels';
-import { Level } from '../components/levels/types';
-import { getMatchAndTimeline, getTeammateAccounts } from '../api/riot/server';
-import { AccountIsland, AccountLevel, AccountTrophy } from '../api/accounts';
+import { getAccountsCollection } from '../app/lib//accounts/server/collection';
+import * as levels from '../app/components/islands/levels';
+import { Level } from '../app/components/levels/types';
+import {
+  getMatchAndTimeline,
+  getTeammateAccounts,
+} from '../app/lib//riot/server';
+import {
+  AccountIsland,
+  AccountLevel,
+  AccountTrophy,
+} from '../app/lib//accounts';
 import {
   getAllEvents,
   getParticipantIdentity,
   getParticipantByAccount,
-} from '../api/riot/helpers';
-import { ARAM_HOWLING_ABYSS, SUPPORTED_QUEUE_IDS } from '../api/overwolf';
-import { log } from '../api/logs';
+} from '../app/lib//riot/helpers';
+import { ARAM_HOWLING_ABYSS, SUPPORTED_QUEUE_IDS } from '../app/lib//overwolf';
+import { log } from '../app/lib//logs';
 import {
   getUnlockedIslandNames,
   isLevelCompleted,
   isLevelNearlyCompleted,
   trophyToAccountTrophy,
-} from '../api/accounts/server/functions';
-import { addHistoryMatch } from '../api/matches/server/functions';
-import { updateTrophyStats } from '../api/stats/server';
+} from '../app/lib//accounts/server/functions';
+import { addHistoryMatch } from '../app/lib//matches/server/functions';
+import { updateTrophyStats } from '../app/lib//stats/server';
 import {
   allTrophies,
   aramTrophies,
-} from '../components/trophies/trophiesByMap';
-import { getTrophyProgress } from '../api/accounts/helpers';
-import { getMissionsCollection } from '../api/missions/server/collection';
-import { TrophyProgress } from '../api/matches';
+} from '../app/components/trophies/trophiesByMap';
+import { getTrophyProgress } from '../app/lib//accounts/helpers';
+import { getMissionsCollection } from '../app/lib//missions/server/collection';
+import { TrophyProgress } from '../app/lib//matches';
 
 const activeChecks: string[] = [];
 

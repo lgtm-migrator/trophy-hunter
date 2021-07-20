@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getJSON } from '../api/utils/request';
+import { getJSON } from '../app/lib//utils/request';
 
 export const currentSeason = '11';
 const cachedVersion = {

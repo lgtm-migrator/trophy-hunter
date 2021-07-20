@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import Ajv from 'ajv';
-import { getAccountsCollection } from '../api/accounts/server/collection';
-import { ONE_YEAR } from '../api/utils/dates';
-import { getSummoner } from '../api/riot/server';
-import { partialNewAccount } from '../api/accounts/server';
+import { getAccountsCollection } from '../app/lib//accounts/server/collection';
+import { ONE_YEAR } from '../app/lib//utils/dates';
+import { getSummoner } from '../app/lib//riot/server';
+import { partialNewAccount } from '../app/lib//accounts/server';
 
 export const handlePostLogin = async (req: Request, res: Response) => {
   const ajv = new Ajv();

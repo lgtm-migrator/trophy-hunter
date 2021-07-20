@@ -1,10 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "build",
+    "outDir": "dist/server",
     "module": "commonjs",
-    "noEmit": false,
-    "jsx": "react-jsx"
+    "noEmit": false
   },
-  "include": ["src/server.ts"]
+  "include": ["src/*.ts", "src/custom.d.ts"],
+  "exclude": ["src/app"]
 }

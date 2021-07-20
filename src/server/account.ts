@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getAccountsCollection } from '../api/accounts/server/collection';
+import { getAccountsCollection } from '../app/lib//accounts/server/collection';
 
 export const handleGetAccount = async (req: Request, res: Response) => {
   const { authToken } = req.cookies;

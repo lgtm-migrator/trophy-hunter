@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import {
   getAccountsCollection,
   getSeasonAccountsCollection,
-} from '../api/accounts/server/collection';
+} from '../app/lib//accounts/server/collection';
 
 export const handleGetSeasonAccount = async (req: Request, res: Response) => {
   const { authToken } = req.cookies;

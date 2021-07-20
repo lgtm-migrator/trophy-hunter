@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getTrophyStats } from '../api/stats/server';
+import { getTrophyStats } from '../app/lib//stats/server';
 
 export const handleGetTrophyStats = async (req: Request, res: Response) => {
   const { name } = req.params;

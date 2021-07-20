@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { getJSON } from '../api/utils/request';
+import { getJSON } from '../app/lib//utils/request';
 import {
   LOL_ID,
   LEAGUE_LAUNCHER_ID,
   INTERESTED_IN_LAUNCHER_FEATURES,
   INTERESTED_IN_LEAGUE_FEATURES,
-} from '../api/overwolf';
+} from '../app/lib//overwolf';
 
 type State = 0 | 1 | 2 | 3;
 

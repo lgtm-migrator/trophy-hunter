@@ -1,6 +1,8 @@
-/* eslint-disable */
-
 module.exports = {
+  env: {
+    node: true,
+    browser: true,
+  },
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getChampions } from '../api/riot/server';
+import { getChampions } from '../app/lib//riot/server';
 import { getRecentVersion } from './version';
 
 export const handleGetImg = async (req: Request, res: Response) => {

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { getAccountsCollection } from '../api/accounts/server/collection';
-import { StatsObj } from '../api/stats/types';
-import { THREE_MINUTES } from '../api/utils/dates';
+import { getAccountsCollection } from '../app/lib//accounts/server/collection';
+import { StatsObj } from '../app/lib//stats/types';
+import { THREE_MINUTES } from '../app/lib//utils/dates';
 
 type Stats = {
   _id: string;

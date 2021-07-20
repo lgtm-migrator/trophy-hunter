@@ -1,14 +1,14 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import https from 'https';
 import compression from 'compression';
 import helmet from 'helmet';
 
-import { initMongoDatabase } from './api/utils/server/db';
+import { initMongoDatabase } from './app/lib//utils/server/db';
 import { handleGetAccount } from './server/account';
 import { handlePostCheck } from './server/check';
 import { handlePostDev } from './server/dev';
@@ -30,7 +30,7 @@ const { PORT = 3001 } = process.env;
 const app = express();
 
 // Use gzip compression
-app.use(compression());
+app.use(compression() as RequestHandler);
 
 // Protect from some well-known web vulnerabilities
 app.use(helmet());
@@ -39,13 +39,15 @@ app.use(helmet());
 app.use(express.json());
 
 // Middleware that parses Cookie header and populate req.cookies with an object keyed by the cookie names.
-app.use(cookieParser());
+app.use(cookieParser() as RequestHandler);
 
 // Middleware to set CORS headers.
 app.use((req, res, next) => {
   res.setHeader(
     'Access-Control-Allow-Origin',
-    `overwolf-extension://${process.env.OVERWOLF_EXTENSION_ID}`
+    req.hostname === 'localhost'
+      ? 'http://localhost:3002'
+      : `overwolf-extension://${process.env.OVERWOLF_EXTENSION_ID}`
   );
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   if (req.method === 'OPTIONS') {

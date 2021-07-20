@@ -4,21 +4,21 @@ import {
   getSummoner,
   getMatchAndTimeline,
   getTeammateAccounts,
-} from '../api/riot/server';
+} from '../app/lib//riot/server';
 import {
   allTrophies,
   aramTrophies,
-} from '../components/trophies/trophiesByMap';
-import { newAccount } from '../api/accounts/server';
+} from '../app/components/trophies/trophiesByMap';
+import { newAccount } from '../app/lib//accounts/server';
 import {
   getAllEvents,
   getParticipantByAccount,
   getParticipantIdentity,
-} from '../api/riot/helpers';
-import { ARAM_HOWLING_ABYSS, SUPPORTED_QUEUE_IDS } from '../api/overwolf';
-import { log } from '../api/logs';
-import { getAccountsCollection } from '../api/accounts/server/collection';
-import { getMissionsCollection } from '../api/missions/server/collection';
+} from '../app/lib//riot/helpers';
+import { ARAM_HOWLING_ABYSS, SUPPORTED_QUEUE_IDS } from '../app/lib//overwolf';
+import { log } from '../app/lib//logs';
+import { getAccountsCollection } from '../app/lib//accounts/server/collection';
+import { getMissionsCollection } from '../app/lib//missions/server/collection';
 
 export const handlePostDev = async (req: Request, res: Response) => {
   const ajv = new Ajv();

@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { FilterQuery } from 'mongodb';
-import { getAccountsCollection } from '../api/accounts/server/collection';
-import type { Account } from '../api/accounts/types';
-import { getHistoryMatches } from '../api/matches/server/functions';
+import { getAccountsCollection } from '../app/lib//accounts/server/collection';
+import type { Account } from '../app/lib//accounts/types';
+import { getHistoryMatches } from '../app/lib//matches/server/functions';
 
 export const handleGetMatches = async (req: Request, res: Response) => {
   const {
