@@ -25,7 +25,7 @@ jobs:
       - name: Build Overwolf App
         env:
           VITE_PUBLIC_API_ENDPOINT: ${{ secrets.VITE_PUBLIC_API_ENDPOINT }}
-        run: npm run build:overwolf
+        run: npm run client:build
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
