@@ -168,7 +168,7 @@
     },
     "protocol_override_domains": {},
     "externally_connectable": {
-      "matches": ["http://*.th.gl"]
+      "matches": ["http://*.th.gl", "https://api.github.com"]
     },
     "force_browser": "user",
     "developer": {

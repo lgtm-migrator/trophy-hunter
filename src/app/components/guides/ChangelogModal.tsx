@@ -1,6 +1,6 @@
 import { Fragment, FC, useEffect, useState } from 'react';
 import Modal from '../modals/Modal';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 import useVersion from '../../hooks/useVersion';
 import styled from '@emotion/styled';
 import usePersistentState from '../../hooks/usePersistentState';
@@ -56,7 +56,7 @@ const ChangelogModal: FC<ChangelogModalProps> = ({ onClose }) => {
             <h2>{release.name}</h2>
             <aside>{new Date(release.published_at).toLocaleDateString()}</aside>
             {release.body ? (
-              <ReactMarkdown>{release.body}</ReactMarkdown>
+              <Markdown>{release.body}</Markdown>
             ) : (
               <p>No details 😞</p>
             )}
