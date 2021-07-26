@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { useMemo } from 'react';
 import ProgressBar from '../common/ProgressBar';
 import IslandIcons from './IslandIcons';
-import * as trophies from '../trophies';
+import { allTrophies } from '../trophies/client';
 import { getSeasonAccount } from '../../lib/accounts';
 import { useQuery } from 'react-query';
 import useVersion from '../../hooks/useVersion';
@@ -68,7 +68,7 @@ const IslandsCompleted = styled(IslandIcons)`
   }
 `;
 
-const numberOfTrophies = Object.keys(trophies).length;
+const numberOfTrophies = allTrophies.length;
 
 const LeaderboardOverview = () => {
   const { account: ownAccount } = useAccount();

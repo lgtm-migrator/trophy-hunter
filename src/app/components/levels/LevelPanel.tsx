@@ -2,7 +2,7 @@ import { FC, MouseEvent } from 'react';
 import styled from '@emotion/styled';
 import ChooseALevel from './ChooseALevel';
 import DetailsToggle from './DetailsToggle';
-import { Level } from './types';
+import { LevelClient } from './types';
 import TrophyListItem from '../trophies/TrophyListItem';
 import TrophyList from '../trophies/TrophyList';
 import { Account } from '../../lib/accounts';
@@ -35,7 +35,7 @@ const Title = styled.h3`
 
 interface LevelPanelProps {
   account: Account;
-  level?: Level;
+  level?: LevelClient;
   open: boolean;
   onToggleClick(event: MouseEvent): void;
 }

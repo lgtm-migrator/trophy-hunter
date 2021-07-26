@@ -16,7 +16,7 @@ export type Category =
   | 'epic'
   | 'special';
 
-export interface Trophy {
+export interface TrophyBase {
   name: string;
   title: string;
   description: string;
@@ -24,8 +24,15 @@ export interface Trophy {
   island: Category;
   category: Category;
   maxProgress?: number;
-  ProgressDetails?: FC<{ details: any; maxProgress?: number }>;
   aramSupport?: boolean;
+}
+
+export interface TrophyClient extends TrophyBase {
+  ProgressDetails?: FC<{ details: any; maxProgress?: number }>;
+  checkLive?(props: Live): number;
+}
+
+export interface TrophyServer extends TrophyBase {
   checkProgress(props: {
     match: Match;
     timeline: MatchTimeline;
@@ -40,7 +47,6 @@ export interface Trophy {
         details: any;
       }
     | number;
-  checkLive?(props: Live): number;
 }
 
 export interface Live {

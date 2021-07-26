@@ -9,7 +9,7 @@ import {
   hubSpecial,
   hubTeamwork,
   welcome,
-} from './levels';
+} from './levels/client';
 
 const HubIsland: FC<IslandProps> = ({
   targetLevel,

@@ -1,7 +1,14 @@
 import { FC } from 'react';
 import { IslandProps } from '../utils';
 import IslandSVG from '../IslandSVG';
-import { skills1, skills2, skills3, skills4, skills5, skills6 } from './levels';
+import {
+  skills1,
+  skills2,
+  skills3,
+  skills4,
+  skills5,
+  skills6,
+} from './levels/client';
 
 const SkillsIsland: FC<IslandProps> = ({
   targetLevel,

@@ -1,5 +1,5 @@
-import { Level } from '../../../components/levels/types';
-import * as levels from '../../../components/islands/levels';
+import { LevelServer } from '../../../components/levels/types';
+import levels from '../../../components/islands/server';
 import {
   getAccountsCollection,
   getSeasonAccountsCollection,
@@ -7,15 +7,17 @@ import {
 import { Ranking } from '../types';
 import { Collection, Filter } from 'mongodb';
 import { Account, AccountTrophy } from '..';
-import { Trophy } from '../../../components/trophies/types';
+import { TrophyServer } from '../../../components/trophies/types';
 import { currentSeason } from '../../../../server/version';
 
 export const isLevelNearlyCompleted = (
-  level: Level,
+  level: LevelServer,
   trophiesCompleted: number
 ) => trophiesCompleted / level.trophies.length >= 0.8;
-export const isLevelCompleted = (level: Level, trophiesCompleted: number) =>
-  trophiesCompleted / level.trophies.length >= 1;
+export const isLevelCompleted = (
+  level: LevelServer,
+  trophiesCompleted: number
+) => trophiesCompleted / level.trophies.length >= 1;
 
 export const getUnlockedIslandNames = (level) =>
   level.unlocksLevels.map((level) => levels[level.name].island);
@@ -91,7 +93,7 @@ export const searchRankingBySummonerName = async (
     }))
     .toArray();
 };
-export const trophyToAccountTrophy = (trophy: Trophy): AccountTrophy => ({
+export const trophyToAccountTrophy = (trophy: TrophyServer): AccountTrophy => ({
   name: trophy.name,
   island: trophy.island,
   level: trophy.level,

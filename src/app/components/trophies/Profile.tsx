@@ -5,7 +5,7 @@ import { getRecentVersion } from '../../lib/riot';
 import { useTargetAccount } from '../../contexts/account';
 import MissionsModal from '../modals/MissionsModal';
 import { Tooltip } from '../tooltip';
-import * as trophies from './index';
+import { allTrophies } from './client';
 
 const Container = styled.div`
   display: flex;
@@ -53,7 +53,7 @@ const Profile = () => {
                   (trophy) => trophy.status === 'completed'
                 ).length
               : 0}
-            /{Object.keys(trophies).length} Trophies
+            /{allTrophies.length} Trophies
           </span>{' '}
           |{' '}
           <Tooltip

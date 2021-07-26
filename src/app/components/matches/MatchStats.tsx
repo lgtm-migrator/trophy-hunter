@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 import { TrophyProgress } from '../../lib/matches';
 import ProgressBar from '../common/ProgressBar';
-import * as trophies from '../trophies';
+import trophies from '../trophies/client';
 import styled from '@emotion/styled';
 import TrophyModal from '../modals/TrophyModal';
-import { Trophy } from '../trophies/types';
+import { TrophyClient } from '../trophies/types';
 
 const Table = styled.table`
   width: 100%;
@@ -29,7 +29,7 @@ type MatchStatsProps = {
   allTrophiesProgress: TrophyProgress[];
 };
 const MatchStats = ({ allTrophiesProgress }: MatchStatsProps): JSX.Element => {
-  const [trophyDetails, setTrophyDetails] = useState<Trophy | null>(null);
+  const [trophyDetails, setTrophyDetails] = useState<TrophyClient | null>(null);
 
   const trophyStats = useMemo(
     () =>

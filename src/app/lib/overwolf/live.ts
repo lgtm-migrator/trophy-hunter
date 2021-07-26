@@ -6,7 +6,7 @@ import {
   SUPPORTED_QUEUE_IDS,
   ARAM_HOWLING_ABYSS,
 } from '.';
-import { Live, Trophy } from '../../components/trophies/types';
+import { Live, TrophyClient } from '../../components/trophies/types';
 import { Account } from '../accounts';
 import { error, log } from '../logs';
 import { waitFor } from '../utils/async';
@@ -16,14 +16,14 @@ import {
   setLocalStorageItem,
   unsetLocalStorageItem,
 } from '../utils/storage';
-import * as levels from '../../components/islands/levels';
-import { Level } from '../../components/levels/types';
+import levels from '../../components/islands/client';
+import { LevelClient } from '../../components/levels/types';
 
 export const PROGRESS = 'PROGRESS';
 export const LIVE = 'LIVE';
 export const TROPHY_PROGRESS = 'TROPHY_PROGRESS';
 
-let activeTrophies: Trophy[] = null;
+let activeTrophies: TrophyClient[] = null;
 let live: Live = {
   activePlayer: null,
   allPlayers: null,
@@ -226,8 +226,8 @@ const getActiveTrophies = (queueId: number) => {
     log('[getActiveTrophies] no active levels', live.account.levels);
     return [];
   }
-  return activeLevels.reduce<Trophy[]>((trophies, accountLevel) => {
-    const level = levels[accountLevel.name] as Level;
+  return activeLevels.reduce<TrophyClient[]>((trophies, accountLevel) => {
+    const level = levels[accountLevel.name] as LevelClient;
     return [
       ...trophies,
       ...level.trophies.filter((trophy) => {

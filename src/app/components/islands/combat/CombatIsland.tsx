@@ -10,7 +10,7 @@ import {
   combat6,
   combat7,
   combat8,
-} from './levels';
+} from './levels/client';
 
 const CombatIsland: FC<IslandProps> = ({
   targetLevel,

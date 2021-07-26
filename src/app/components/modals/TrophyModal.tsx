@@ -1,7 +1,7 @@
 import Modal from './Modal';
 import styled from '@emotion/styled';
 import FancyButton from '../common/FancyButton';
-import { Trophy } from '../trophies/types';
+import { TrophyClient } from '../trophies/types';
 import TrophyStats from '../trophies/TrophyStats';
 import { useQuery } from 'react-query';
 import { getTrophyStats } from '../../lib/stats';
@@ -52,7 +52,7 @@ const Stats = styled.p`
 `;
 
 interface TrophyModalProps {
-  trophy: Trophy;
+  trophy: TrophyClient;
   onClose(): void;
 }
 

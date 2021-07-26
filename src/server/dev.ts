@@ -5,10 +5,7 @@ import {
   getMatchAndTimeline,
   getTeammateAccounts,
 } from '../app/lib//riot/server';
-import {
-  allTrophies,
-  aramTrophies,
-} from '../app/components/trophies/trophiesByMap';
+import { allTrophies, aramTrophies } from '../app/components/trophies/server';
 import { newAccount } from '../app/lib//accounts/server';
 import {
   getAllEvents,
@@ -16,7 +13,7 @@ import {
   getParticipantIdentity,
 } from '../app/lib//riot/helpers';
 import { ARAM_HOWLING_ABYSS, SUPPORTED_QUEUE_IDS } from '../app/lib//overwolf';
-import { log } from '../app/lib//logs';
+import { log } from '../app/lib/logs';
 import { getAccountsCollection } from '../app/lib//accounts/server/collection';
 import { getMissionsCollection } from '../app/lib//missions/server/collection';
 

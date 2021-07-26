@@ -7,7 +7,7 @@ import {
   objectives3,
   objectives4,
   objectives5,
-} from './levels';
+} from './levels/client';
 
 const ObjectivesIsland: FC<IslandProps> = ({
   targetLevel,

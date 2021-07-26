@@ -8,7 +8,7 @@ import ArrowLeft from '../icons/ArrowLeft';
 import ArrowRight from '../icons/ArrowRight';
 import TrophyListItem from '../trophies/TrophyListItem';
 import TrophyList from '../trophies/TrophyList';
-import * as trophies from '../trophies';
+import trophies from '../trophies/client';
 import { useAccount } from '../../contexts/account';
 import { apiEndoint } from '../../lib/utils/runtime';
 import MatchStats from '../matches/MatchStats';

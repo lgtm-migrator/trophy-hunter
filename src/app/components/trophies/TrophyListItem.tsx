@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes, useState } from 'react';
 import styled from '@emotion/styled';
-import { Trophy } from './types';
+import { TrophyClient } from './types';
 import { useTrophyProgress } from '../../contexts/account';
 import MissionStar from '../icons/MissionStar';
 import Grow from '../common/Grow';
@@ -43,7 +43,7 @@ interface TrophyListItemProps
   extends ListItemProps,
     HTMLAttributes<HTMLDivElement> {
   account?: Account;
-  trophy: Trophy;
+  trophy: TrophyClient;
   progress?: number;
 }
 

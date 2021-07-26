@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import Ajv from 'ajv';
-import { getAccountsCollection } from '../app/lib//accounts/server/collection';
+import { getAccountsCollection } from '../app/lib/accounts/server/collection';
 import * as levels from '../app/components/islands/levels';
 import { Level } from '../app/components/levels/types';
 import {
@@ -27,10 +27,7 @@ import {
 } from '../app/lib//accounts/server/functions';
 import { addHistoryMatch } from '../app/lib//matches/server/functions';
 import { updateTrophyStats } from '../app/lib//stats/server';
-import {
-  allTrophies,
-  aramTrophies,
-} from '../app/components/trophies/trophiesByMap';
+import { allTrophies, aramTrophies } from '../app/components/trophies/server';
 import { getTrophyProgress } from '../app/lib//accounts/helpers';
 import { getMissionsCollection } from '../app/lib//missions/server/collection';
 import { TrophyProgress } from '../app/lib//matches';

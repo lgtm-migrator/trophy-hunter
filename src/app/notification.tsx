@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 import TrophyListItem from './components/trophies/TrophyListItem';
 import overwolf, { closeCurrentWindow, getAppVersion } from './lib/overwolf';
 import { getLocalStorageItem, setLocalStorageItem } from './lib/utils/storage';
-import * as trophies from './components/trophies';
+import * as trophies from './components/trophies/client';
 import Timer from './components/common/Timer';
-import { Trophy } from './components/trophies/types';
+import { TrophyClient } from './components/trophies/types';
 import NotificationHeader from './components/notifications/NotificationHeader';
 import NotificationTitle from './components/notifications/NotificationTitle';
 import NotificationContainer from './components/notifications/NotificationContainer';
@@ -53,7 +53,7 @@ const Notification = () => {
     return null;
   }
 
-  const trophy: Trophy = trophies[notification.trophyName];
+  const trophy: TrophyClient = trophies[notification.trophyName];
   return (
     <NotificationContainer>
       <NotificationHeader

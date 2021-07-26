@@ -5,7 +5,7 @@ import Squid from '../icons/Squid';
 import TrophyList from '../trophies/TrophyList';
 import TrophyListItem from '../trophies/TrophyListItem';
 import { Account } from '../../lib/accounts';
-import * as trophies from '../trophies';
+import trophies from '../trophies/client';
 
 const Container = styled.div`
   display: grid;

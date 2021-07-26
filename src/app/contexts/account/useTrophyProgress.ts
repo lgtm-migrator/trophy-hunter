@@ -1,7 +1,7 @@
-import { Trophy } from '../../components/trophies/types';
+import { TrophyClient } from '../../components/trophies/types';
 import { Account } from '../../lib/accounts';
 
-const useTrophyProgress = (account: Account, trophy: Trophy) => {
+const useTrophyProgress = (account: Account, trophy: TrophyClient) => {
   const accountTrophy = account?.trophies.find(
     (accountTrophy) => accountTrophy.name === trophy.name
   );

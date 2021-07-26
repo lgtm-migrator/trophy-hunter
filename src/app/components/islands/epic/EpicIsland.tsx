@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { IslandProps } from '../utils';
 import IslandSVG from '../IslandSVG';
-import { epic1, epic2 } from './levels';
+import { epic1, epic2 } from './levels/client';
 
 const EpicIsland: FC<IslandProps> = ({
   targetLevel,

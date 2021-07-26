@@ -10,7 +10,7 @@ import {
   teamwork6,
   teamwork7,
   teamwork8,
-} from './levels';
+} from './levels/client';
 
 const TeamWorkIsland: FC<IslandProps> = ({
   targetLevel,

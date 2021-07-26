@@ -1,9 +1,9 @@
-import * as levels from '../../components/islands/levels';
-import { Level } from '../../components/levels/types';
+import levels from '../../components/islands/client';
+import { LevelClient } from '../../components/levels/types';
 import { useMemo } from 'react';
-import { Trophy } from '../../components/trophies/types';
+import { TrophyClient } from '../../components/trophies/types';
 import { Account } from '../../lib/accounts';
-import { allTrophies } from '../../components/trophies/trophiesByMap';
+import { allTrophies } from '../../components/trophies/client';
 import { useMission } from './useMission';
 
 const useAvailableTrophies = (account: Account) => {
@@ -16,8 +16,8 @@ const useAvailableTrophies = (account: Account) => {
     }
     const availableTrophies = account.levels
       .sort((a, b) => b.unlockedAt - a.unlockedAt)
-      .reduce<Trophy[]>((availableTrophies, activeLevel) => {
-        const level: Level = levels[activeLevel.name];
+      .reduce<TrophyClient[]>((availableTrophies, activeLevel) => {
+        const level: LevelClient = levels[activeLevel.name];
         if (!level) {
           return availableTrophies;
         }

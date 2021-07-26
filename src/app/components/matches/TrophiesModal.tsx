@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import styled from '@emotion/styled';
 import Modal, { ModalBody } from '../modals/Modal';
 import TrophyList from '../trophies/TrophyList';
-import * as trophies from '../trophies';
+import trophies from '../trophies/client';
 import Lottie from 'react-lottie';
 import animationData from './confetti.json';
 import Squid from '../icons/Squid';

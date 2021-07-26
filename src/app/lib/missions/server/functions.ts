@@ -1,4 +1,4 @@
-import { allTrophies } from '../../../components/trophies/trophiesByMap';
+import { allTrophies } from '../../../components/trophies/server';
 import { log } from '../../logs';
 import { Mission } from '../types';
 import { getMissionsCollection } from './collection';

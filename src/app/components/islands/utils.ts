@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
 import styled from '@emotion/styled';
-import { Level, TargetLevel } from '../levels/types';
+import { LevelClient, TargetLevel } from '../levels/types';
 import { AccountLevel } from '../../lib/accounts';
 
 interface TransformIslandProps {
@@ -39,7 +39,7 @@ export interface IslandProps {
   targetLevel?: TargetLevel;
   status: 'open' | 'done' | 'closed';
   levels: AccountLevel[];
-  onLevelClick(level: Level): void;
+  onLevelClick(level: LevelClient): void;
 }
 
 export interface UserLevels {

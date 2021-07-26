@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { useMemo } from 'react';
-import * as trophies from '../trophies';
-import { Category, Trophy } from '../trophies/types';
+import trophies from '../trophies/client';
+import { Category, TrophyClient } from '../trophies/types';
 import TrophyProgress from './TrophyProgress';
 
 const Container = styled.div`
@@ -29,7 +29,7 @@ const TrophyIcons = ({ trophyNames }: Props) => {
   const localTrophies = useMemo(
     () =>
       trophyNames
-        .map<Trophy>((trophyName) => trophies[trophyName])
+        .map<TrophyClient>((trophyName) => trophies[trophyName])
         .filter((trophy) => trophy)
         .sort(
           (a, b) =>

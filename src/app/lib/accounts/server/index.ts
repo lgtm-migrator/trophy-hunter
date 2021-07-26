@@ -1,5 +1,9 @@
 import { AccountLevel, AccountTrophy } from '..';
-import {
+import levels from '../../../components/islands/server';
+import { Account } from '../types';
+import { trophyToAccountTrophy } from './functions';
+
+const {
   hubCombat,
   hubEpic,
   hubObjectives,
@@ -7,11 +11,9 @@ import {
   hubSpecial,
   hubTeamwork,
   welcome,
-} from '../../../components/islands/levels';
-import { Account } from '../types';
-import { trophyToAccountTrophy } from './functions';
+} = levels;
 
-const levels = [
+const levelsList = [
   welcome,
   hubCombat,
   hubEpic,
@@ -20,14 +22,16 @@ const levels = [
   hubSpecial,
   hubTeamwork,
 ];
-export const startingAccountLevels: AccountLevel[] = levels.map((level) => ({
-  name: level.name,
-  island: 'hub',
-  status: 'active',
-  unlockedAt: Date.now(),
-}));
+export const startingAccountLevels: AccountLevel[] = levelsList.map(
+  (level) => ({
+    name: level.name,
+    island: 'hub',
+    status: 'active',
+    unlockedAt: Date.now(),
+  })
+);
 
-export const startingTrophies = levels.reduce<AccountTrophy[]>(
+export const startingTrophies = levelsList.reduce<AccountTrophy[]>(
   (curr, level) => [...curr, ...level.trophies.map(trophyToAccountTrophy)],
   []
 );

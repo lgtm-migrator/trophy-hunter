@@ -9,14 +9,14 @@ import ObjectivesProgress from '../../trophies/objectives/ObjectivesProgress';
 import EpicProgress from '../../trophies/epic/EpicProgress';
 import SpecialProgress from '../../trophies/special/SpecialProgress';
 import { useAccount } from '../../../contexts/account';
-import * as combatTrophies from '../../trophies/combat';
-import * as epicTrophies from '../../trophies/epic';
-import * as hubTrophies from '../../trophies/hub';
-import * as objectivesTrophies from '../../trophies/objectives';
-import * as skillsTrophies from '../../trophies/skills';
-import * as specialTrophies from '../../trophies/special';
-import * as teamworkTrophies from '../../trophies/teamwork';
-import * as trophies from '../../trophies';
+import * as combatTrophies from '../../trophies/combat/client';
+import * as epicTrophies from '../../trophies/epic/client';
+import * as hubTrophies from '../../trophies/hub/client';
+import * as objectivesTrophies from '../../trophies/objectives/client';
+import * as skillsTrophies from '../../trophies/skills/client';
+import * as specialTrophies from '../../trophies/special/client';
+import * as teamworkTrophies from '../../trophies/teamwork/client';
+import trophies from '../../trophies/client';
 
 const Items = styled.div`
   display: flex;
