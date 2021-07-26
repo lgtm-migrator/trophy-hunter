@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import Ajv from 'ajv';
 import { getAccountsCollection } from '../app/lib/accounts/server/collection';
-import * as levels from '../app/components/islands/levels';
-import { Level } from '../app/components/levels/types';
+import levels from '../app/components/islands/server';
+import { LevelServer } from '../app/components/levels/types';
 import {
   getMatchAndTimeline,
   getTeammateAccounts,
@@ -186,7 +186,7 @@ export const handlePostCheck = async (req: Request, res: Response) => {
         return;
       }
 
-      const level = levels[accountLevel.name] as Level;
+      const level = levels[accountLevel.name] as LevelServer;
       let levelTrophiesCompleted = 0;
       // Filter level trophies ARAM/SR
 
