@@ -12,6 +12,7 @@ const Aside = styled.aside`
   border-right: 1px solid #3f3e43;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 `;
 
 interface SidebarLinkProps {

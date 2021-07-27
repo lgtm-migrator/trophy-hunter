@@ -82,11 +82,11 @@ const sizes = {
     }
 
     .trophiesCount {
-      font-size: 18px;
+      font-size: 16px;
     }
   `,
   M: css`
-    column-gap: 10px;
+    column-gap: 6px;
     padding: 17px 12px;
 
     grid-template-areas:
@@ -105,7 +105,7 @@ const sizes = {
     }
 
     .trophiesCount {
-      font-size: 18px;
+      font-size: 16px;
     }
   `,
   S: css`

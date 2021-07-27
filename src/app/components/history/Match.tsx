@@ -109,7 +109,7 @@ const MoreButton = styled.button`
 
 const Details = styled(TrophyList)`
   margin-top: 9px;
-  padding-top: 19px;
+  padding: 1em;
   grid-column: 1 / 5;
   font-size: 14px;
   max-height: 330px;
