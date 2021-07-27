@@ -3,11 +3,7 @@ import base from './base';
 
 const trophyHunter: TrophyClient = {
   ...base,
-  checkLive: ({ events, trophyData, account }) => {
-    if (!events.length) {
-      return 0;
-    }
-
+  checkLive: ({ events, account }) => {
     const championKills = events.reduce((current, event) => {
       if (
         event.EventName !== 'ChampionKill' ||
@@ -19,11 +15,6 @@ const trophyHunter: TrophyClient = {
       return [...current, event.VictimName];
     }, []);
 
-    if (championKills.length <= (trophyData.trophyHunter || 0)) {
-      return 0;
-    }
-
-    trophyData.trophyHunter = championKills.length;
     return championKills.length / 5;
   },
 };
