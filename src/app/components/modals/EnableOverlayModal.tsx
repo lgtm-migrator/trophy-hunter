@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Modal from './Modal';
 import styled from '@emotion/styled';
-import { LOL_ID } from '../../lib/overwolf';
+import { LOL_ID } from '../../lib/overwolf/constants';
 
 const Container = styled.div`
   display: grid;

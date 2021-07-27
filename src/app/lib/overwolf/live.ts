@@ -1,9 +1,5 @@
-import {
-  INTERESTED_IN_LEAGUE_FEATURES,
-  LEAGUE_LAUNCHER_ID,
-  openWindow,
-  setLeagueFeatures,
-} from '.';
+import { openWindow, setLeagueFeatures } from '.';
+import { INTERESTED_IN_LEAGUE_FEATURES, LEAGUE_LAUNCHER_ID } from './constants';
 import { Live, TrophyClient } from '../../components/trophies/types';
 import { Account } from '../accounts';
 import { error, log } from '../logs';

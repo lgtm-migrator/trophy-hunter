@@ -2,6 +2,7 @@
 
 import { log } from '../logs';
 import { getLocalStorageItem, setLocalStorageItem } from '../utils/storage';
+import { LEAGUE_LAUNCHER_ID, LOL_ID } from './constants';
 
 if (typeof overwolf === 'undefined') {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -19,17 +20,6 @@ if (typeof overwolf === 'undefined') {
 }
 
 export default overwolf;
-
-export const LEAGUE_LAUNCHER_ID = 10902;
-export const LOL_ID = 5426;
-export const INTERESTED_IN_LAUNCHER_FEATURES = [
-  'game_flow',
-  'summoner_info',
-  'lcu_info',
-  'lobby_info',
-  'end_game',
-];
-export const INTERESTED_IN_LEAGUE_FEATURES = ['live_client_data', 'matchState'];
 
 export const isLeagueLauncherRunning = (
   launchers: overwolf.games.launchers.LauncherInfo[]

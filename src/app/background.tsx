@@ -1,7 +1,6 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import overwolf, {
-  LEAGUE_LAUNCHER_ID,
   isLeagueLaunched,
   isLeagueRunning,
   openWindow,
@@ -9,7 +8,6 @@ import overwolf, {
   isLeagueLauncherRunning,
   isLeagueClosed,
   closeWindow,
-  INTERESTED_IN_LAUNCHER_FEATURES,
   getAppVersion,
   toggleInGameWindow,
 } from './lib/overwolf';
@@ -27,6 +25,10 @@ import {
 import { useAccount } from './contexts/account';
 import { getLocalStorageItem } from './lib/utils/storage';
 import App from './App';
+import {
+  INTERESTED_IN_LAUNCHER_FEATURES,
+  LEAGUE_LAUNCHER_ID,
+} from './lib/overwolf/constants';
 
 getAppVersion().then((version) => log(`Running ${version}`));
 

@@ -9,7 +9,7 @@
     "server:build": "tsc --project tsconfig.server.json",
     "build": "npm run server:build && npm run client:build",
     "prepare": "husky install",
-    "test": "tsc && prettier --check . && eslint .",
+    "test": "tsc && tsc --project tsconfig.server.json --noEmit && prettier --check . && eslint .",
     "start": "node dist/server/server.js"
   },
   "repository": {

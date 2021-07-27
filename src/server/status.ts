@@ -5,7 +5,7 @@ import {
   LEAGUE_LAUNCHER_ID,
   INTERESTED_IN_LAUNCHER_FEATURES,
   INTERESTED_IN_LEAGUE_FEATURES,
-} from '../app/lib//overwolf';
+} from '../app/lib/overwolf/constants';
 
 type State = 0 | 1 | 2 | 3;
 
