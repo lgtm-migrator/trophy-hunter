@@ -6,6 +6,7 @@ import { LevelServer } from '../app/components/levels/types';
 import {
   getMatchAndTimeline,
   getTeammateAccounts,
+  isMatchInProgress,
 } from '../app/lib//riot/server';
 import {
   AccountIsland,
@@ -98,7 +99,15 @@ export const handlePostCheck = async (req: Request, res: Response) => {
     });
 
     if (!match || !timeline) {
-      return res.status(404).end('Not Found');
+      if (
+        await isMatchInProgress({
+          platformId: account.summoner.platformId,
+          encryptedSummonerId: account.summoner.id,
+        })
+      ) {
+        return res.status(404).end('Match in progress');
+      }
+      return res.status(403).end(`Unknown match`);
     }
 
     if (!SUPPORTED_QUEUE_IDS.includes(match.queueId)) {

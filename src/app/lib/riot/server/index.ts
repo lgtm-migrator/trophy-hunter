@@ -74,6 +74,23 @@ export const getMatchAndTimeline = ({ platformId, matchId }) =>
     }),
   ]);
 
+export const isMatchInProgress = async ({
+  platformId,
+  encryptedSummonerId,
+}: {
+  platformId: string;
+  encryptedSummonerId: string;
+}): Promise<boolean> => {
+  try {
+    const activeMatch = await requestRiot<Match>(
+      `https://${platformId}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${encryptedSummonerId}`
+    );
+    return !!activeMatch;
+  } catch (error) {
+    return false;
+  }
+};
+
 export const getTeammateAccounts = async (
   match: Match,
   participant: Participant
