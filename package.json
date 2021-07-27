@@ -44,7 +44,6 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@overwolf/types": "git+https://github.com/lmachens/types.git#684d1bd6e756472aaac0e64046316b5bf85dd4cc",
     "@types/express": "^4.17.13",
     "@types/node": "^16.3.3",
     "@types/react": "^17.0.14",
