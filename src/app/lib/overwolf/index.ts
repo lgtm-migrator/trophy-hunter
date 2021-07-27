@@ -129,7 +129,9 @@ export const closeCurrentWindow = async () => {
 
 export const restoreCurrentWindow = (): void => {
   overwolf.windows.getCurrentWindow((result) => {
-    overwolf.windows.restore(result.window.id);
+    if (!result.window.isVisible) {
+      overwolf.windows.restore(result.window.id);
+    }
   });
 };
 
