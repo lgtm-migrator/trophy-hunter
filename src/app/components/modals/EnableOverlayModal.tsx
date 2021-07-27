@@ -67,7 +67,7 @@ const EnableOverlayModal = () => {
           in the Overwolf settings to detect your account and matches.
         </Text>
         <a href="overwolf://settings">Open Settings</a>
-        <img src={`./overlay.jpg`} alt="Overwolf overlay settings" />
+        <img src={`/build/overlay.jpg`} alt="Overwolf overlay settings" />
         <a
           href="https://support.overwolf.com/en/support/solutions/articles/9000178795-overwolf-game-settings"
           target="_blank"

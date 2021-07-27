@@ -22,7 +22,7 @@ const LastChampions = ({ details, maxProgress }: LastChampionsProps) => {
             src={
               details?.length > index
                 ? `${apiEndoint}/api/champions/${details[index]}/img`
-                : `./unknown.png`
+                : `/build/unknown.png`
             }
           />
         ))}
