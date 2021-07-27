@@ -8,7 +8,7 @@ import overwolf, {
   isLeagueGameId,
 } from '../../lib/overwolf';
 import { log } from '../../lib/logs';
-import type { OwAd } from '@overwolf/types/owads';
+import type { OwAd } from '../../owads.d';
 
 const Container = styled.div`
   position: relative;

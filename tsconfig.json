@@ -7,7 +7,7 @@
     "strict": false,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "types": ["vite/client", "node", "@overwolf/types"],
+    "types": ["vite/client", "node"],
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
