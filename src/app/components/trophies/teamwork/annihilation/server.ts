@@ -2,7 +2,7 @@ import { TrophyServer } from '../../types';
 import base from './base';
 import { getParticipantKillsAndAssists } from '../../../../lib/riot/helpers';
 import { zip } from '../../../../lib/utils/arrays';
-import { ARAM_HOWLING_ABYSS } from '../../../../lib/overwolf';
+import { ARAM_HOWLING_ABYSS } from '../../../../lib/riot/queues';
 
 const annihilation: TrophyServer = {
   ...base,

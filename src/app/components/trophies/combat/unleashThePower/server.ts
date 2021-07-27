@@ -1,7 +1,7 @@
 import { TrophyServer } from '../../types';
 import base from './base';
 import { getLevelUps, getParticipantKills } from '../../../../lib/riot/helpers';
-import { ARAM_HOWLING_ABYSS } from '../../../../lib/overwolf';
+import { ARAM_HOWLING_ABYSS } from '../../../../lib/riot/queues';
 
 const unleashThePower: TrophyServer = {
   ...base,

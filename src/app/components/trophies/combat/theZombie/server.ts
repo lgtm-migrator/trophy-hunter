@@ -4,7 +4,7 @@ import {
   getParticipantKills,
   getParticipantDeaths,
 } from '../../../../lib/riot/helpers';
-import { ARAM_HOWLING_ABYSS } from '../../../../lib/overwolf';
+import { ARAM_HOWLING_ABYSS } from '../../../../lib/riot/queues';
 
 const theZombie: TrophyServer = {
   ...base,

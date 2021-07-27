@@ -1,6 +1,6 @@
 import { TrophyServer } from '../../types';
 import base, { ARAM_MINUTES, SUMMONERS_RIFT_MINUTES } from './base';
-import { ARAM_HOWLING_ABYSS } from '../../../../lib/overwolf';
+import { ARAM_HOWLING_ABYSS } from '../../../../lib/riot/queues';
 import { minutesToSeconds } from '../../../../lib/utils/dates';
 
 const theElephant: TrophyServer = {

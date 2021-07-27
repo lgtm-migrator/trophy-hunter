@@ -18,7 +18,10 @@ import {
   getParticipantIdentity,
   getParticipantByAccount,
 } from '../app/lib//riot/helpers';
-import { ARAM_HOWLING_ABYSS, SUPPORTED_QUEUE_IDS } from '../app/lib//overwolf';
+import {
+  ARAM_HOWLING_ABYSS,
+  SUPPORTED_QUEUE_IDS,
+} from '../app/lib/riot/queues';
 import { log } from '../app/lib//logs';
 import {
   getUnlockedIslandNames,

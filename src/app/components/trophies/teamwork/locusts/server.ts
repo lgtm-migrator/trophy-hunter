@@ -1,6 +1,6 @@
 import { TrophyServer } from '../../types';
 import base from './base';
-import { ARAM_HOWLING_ABYSS } from '../../../../lib/overwolf';
+import { ARAM_HOWLING_ABYSS } from '../../../../lib/riot/queues';
 import { getAllKills, getTeam } from '../../../../lib/riot/helpers';
 
 const locusts: TrophyServer = {

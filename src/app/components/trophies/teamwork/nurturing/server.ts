@@ -5,7 +5,7 @@ import {
   getTeammates,
   getOtherParticipants,
 } from '../../../../lib/riot/helpers';
-import { ARAM_HOWLING_ABYSS } from '../../../../lib/overwolf';
+import { ARAM_HOWLING_ABYSS } from '../../../../lib/riot/queues';
 
 const nurturing: TrophyServer = {
   ...base,

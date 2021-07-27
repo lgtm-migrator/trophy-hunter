@@ -3,8 +3,6 @@ import {
   LEAGUE_LAUNCHER_ID,
   openWindow,
   setLeagueFeatures,
-  SUPPORTED_QUEUE_IDS,
-  ARAM_HOWLING_ABYSS,
 } from '.';
 import { Live, TrophyClient } from '../../components/trophies/types';
 import { Account } from '../accounts';
@@ -18,6 +16,7 @@ import {
 } from '../utils/storage';
 import levels from '../../components/islands/client';
 import { LevelClient } from '../../components/levels/types';
+import { ARAM_HOWLING_ABYSS, SUPPORTED_QUEUE_IDS } from '../riot/queues';
 
 export const PROGRESS = 'PROGRESS';
 export const LIVE = 'LIVE';

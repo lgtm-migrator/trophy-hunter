@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { useState } from 'react';
 import { HistoryMatch } from '../../lib/matches';
 import { loadingStyle } from '../../styles/animations';
-import { queues } from '../../lib/overwolf';
 import TrophyIcons from './TrophyIcons';
 import ArrowLeft from '../icons/ArrowLeft';
 import ArrowRight from '../icons/ArrowRight';
@@ -12,6 +11,7 @@ import trophies from '../trophies/client';
 import { useAccount } from '../../contexts/account';
 import { apiEndoint } from '../../lib/utils/runtime';
 import MatchStats from '../matches/MatchStats';
+import { queues } from '../../lib/riot/queues';
 
 type Props = {
   match?: HistoryMatch;

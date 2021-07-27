@@ -8,7 +8,6 @@ import overwolf, {
   getAppVersion,
   openWindow,
   WindowName,
-  ARAM_HOWLING_ABYSS,
 } from './lib/overwolf';
 import { log } from './lib/logs';
 import { VideoAds } from './components/ads';
@@ -42,6 +41,7 @@ import useCenterWindow from './hooks/useCenterWindow';
 import { SpecialGradients } from './components/levels/special';
 import SearchingSquid from './components/icons/SearchingSquid';
 import App from './App';
+import { ARAM_HOWLING_ABYSS } from './lib/riot/queues';
 
 getAppVersion().then((version) => log(`Running ${version}`));
 
