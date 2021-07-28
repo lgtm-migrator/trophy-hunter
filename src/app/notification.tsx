@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import TrophyListItem from './components/trophies/TrophyListItem';
 import overwolf, { closeCurrentWindow, getAppVersion } from './lib/overwolf';
 import { getLocalStorageItem, setLocalStorageItem } from './lib/utils/storage';
-import * as trophies from './components/trophies/client';
+import trophies from './components/trophies/client';
 import Timer from './components/common/Timer';
 import { TrophyClient } from './components/trophies/types';
 import NotificationHeader from './components/notifications/NotificationHeader';
