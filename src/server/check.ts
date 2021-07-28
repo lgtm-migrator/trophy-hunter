@@ -102,15 +102,12 @@ export const handlePostCheck = async (req: Request, res: Response) => {
     });
 
     if (!match || !timeline) {
-      if (
-        await isMatchInProgress({
-          platformId: account.summoner.platformId,
-          encryptedSummonerId: account.summoner.id,
-        })
-      ) {
-        return res.status(404).end('Match in progress');
-      }
-      return res.status(403).end(`Unknown match`);
+      const matchInProgress = await isMatchInProgress({
+        platformId: account.summoner.platformId,
+        encryptedSummonerId: account.summoner.id,
+      });
+      console.warn(`matchInProgress: ${matchInProgress}`);
+      return res.status(404).end('Match in progress');
     }
 
     if (!SUPPORTED_QUEUE_IDS.includes(match.queueId)) {
