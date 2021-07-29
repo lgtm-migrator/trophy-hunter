@@ -4,6 +4,7 @@ import {
   getSummoner,
   getMatchAndTimeline,
   getTeammateAccounts,
+  isMatchInProgress,
 } from '../app/lib//riot/server';
 import { allTrophies, aramTrophies } from '../app/components/trophies/server';
 import { newAccount } from '../app/lib//accounts/server';
@@ -57,6 +58,12 @@ export const handlePostDev = async (req: Request, res: Response) => {
   }
 
   if (!match || !timeline) {
+    const matchInProgress = await isMatchInProgress({
+      platformId: summoner.platformId,
+      encryptedSummonerId: summoner.id,
+    });
+    console.warn(`matchInProgress: ${matchInProgress}`);
+
     return res.status(404).end('Not Found');
   }
 
