@@ -10,7 +10,6 @@ const theBlackFlag: TrophyServer = {
     const opponent = match.teams.find(
       (team) => team.teamId !== participant.teamId
     );
-
     const teamGoldFrames = calcTotalGoldFrames(timeline, team.teamId);
     const opponentGoldFrames = calcTotalGoldFrames(timeline, opponent.teamId);
     const teamGoldDiffFrames = zip(teamGoldFrames, opponentGoldFrames).map(
@@ -18,8 +17,7 @@ const theBlackFlag: TrophyServer = {
     );
 
     const teamMaxGoldDown = Math.min(...teamGoldDiffFrames);
-
-    return Number(teamMaxGoldDown > 10000 && participant.stats.win);
+    return Number(teamMaxGoldDown <= -10000 && participant.stats.win);
   },
 };
 
