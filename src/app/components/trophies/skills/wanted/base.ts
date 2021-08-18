@@ -7,6 +7,7 @@ const wanted: TrophyBase = {
   title: 'Wanted',
   description: 'Have a bounty level of one or more',
   category: 'skills',
+  aramSupport: true,
 };
 
 export default wanted;

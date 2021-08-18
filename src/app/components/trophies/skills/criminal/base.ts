@@ -7,6 +7,7 @@ const criminal: TrophyBase = {
   title: 'Criminal',
   description: 'Have a bounty level of three or more',
   category: 'skills',
+  aramSupport: true,
 };
 
 export default criminal;

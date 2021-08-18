@@ -46,6 +46,7 @@ const MatchStats = ({ allTrophiesProgress }: MatchStatsProps): JSX.Element => {
         .filter(
           (stats) =>
             stats.progress > 0 &&
+            stats.trophy &&
             !stats.trophy.maxProgress &&
             stats.trophy.name !== 'playstyle'
         )

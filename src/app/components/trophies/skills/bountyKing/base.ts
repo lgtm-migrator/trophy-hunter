@@ -7,6 +7,7 @@ const bountyKing: TrophyBase = {
   title: 'Bounty King',
   description: 'Have a bounty level of ten or more',
   category: 'skills',
+  aramSupport: true,
 };
 
 export default bountyKing;

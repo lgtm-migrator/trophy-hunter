@@ -80,7 +80,9 @@ const AfterMatch: FC<AfterMatchProps> = ({ className }) => {
 
   useEffect(() => {
     if (checkGameId) {
-      check(parseInt(checkGameId));
+      setTimeout(() => {
+        check(parseInt(checkGameId));
+      }, 5000);
     }
   }, [checkGameId]);
 
