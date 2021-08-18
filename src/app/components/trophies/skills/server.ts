@@ -1,7 +1,9 @@
 export { default as appetizer } from './appetizer/server';
 export { default as billGates } from './billGates/server';
+export { default as bountyKing } from './bountyKing/server';
 export { default as careful } from './careful/server';
 export { default as carryMode } from './carryMode/server';
+export { default as criminal } from './criminal/server';
 export { default as damageDealer } from './damageDealer/server';
 export { default as disruptor } from './disruptor/server';
 export { default as dominating } from './dominating/server';
@@ -34,4 +36,5 @@ export { default as thePolice } from './thePolice/server';
 export { default as theSpartan } from './theSpartan/server';
 export { default as theTiger } from './theTiger/server';
 export { default as unstoppable } from './unstoppable/server';
+export { default as wanted } from './wanted/server';
 export { default as warrior } from './warrior/server';
