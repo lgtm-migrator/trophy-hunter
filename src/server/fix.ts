@@ -26,43 +26,47 @@ async function run() {
     const newTrophies: AccountTrophy[] = [];
 
     let changed = false;
-    const hubSkills = account.levels.find(
-      (level) => level.name === 'hubSkills'
+    const hubObjectives = account.levels.find(
+      (level) => level.name === 'hubObjectives'
     );
     if (
-      hubSkills &&
-      !account.trophies.some((trophy) => trophy.name === trophies.wanted.name)
+      hubObjectives &&
+      !account.trophies.some((trophy) => trophy.name === trophies.wrecking.name)
     ) {
       changed = true;
-      newTrophies.push(trophyToAccountTrophy(trophies.wanted));
-      if (hubSkills.status === 'completed') {
-        hubSkills.status = 'unlocked';
+      newTrophies.push(trophyToAccountTrophy(trophies.wrecking));
+      if (hubObjectives.status === 'completed') {
+        hubObjectives.status = 'unlocked';
       }
     }
 
-    const skills4 = account.levels.find((level) => level.name === 'skills4');
+    const objectives1 = account.levels.find(
+      (level) => level.name === 'objectives1'
+    );
     if (
-      skills4 &&
-      !account.trophies.some((trophy) => trophy.name === trophies.criminal.name)
+      objectives1 &&
+      !account.trophies.some((trophy) => trophy.name === trophies.smashing.name)
     ) {
       changed = true;
-      newTrophies.push(trophyToAccountTrophy(trophies.criminal));
-      if (skills4.status === 'completed') {
-        skills4.status = 'unlocked';
+      newTrophies.push(trophyToAccountTrophy(trophies.smashing));
+      if (objectives1.status === 'completed') {
+        objectives1.status = 'unlocked';
       }
     }
 
-    const skills6 = account.levels.find((level) => level.name === 'skills6');
+    const objectives4 = account.levels.find(
+      (level) => level.name === 'objectives4'
+    );
     if (
-      skills6 &&
+      objectives4 &&
       !account.trophies.some(
-        (trophy) => trophy.name === trophies.bountyKing.name
+        (trophy) => trophy.name === trophies.omnismash.name
       )
     ) {
       changed = true;
-      newTrophies.push(trophyToAccountTrophy(trophies.bountyKing));
-      if (skills6.status === 'completed') {
-        skills6.status = 'unlocked';
+      newTrophies.push(trophyToAccountTrophy(trophies.omnismash));
+      if (objectives4.status === 'completed') {
+        objectives4.status = 'unlocked';
       }
     }
 

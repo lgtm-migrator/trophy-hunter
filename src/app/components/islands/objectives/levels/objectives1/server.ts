@@ -10,6 +10,7 @@ const objectives1: LevelServer = {
     trophies.dragonSlayer,
     trophies.energized,
     trophies.neutralizer,
+    trophies.smashing,
   ],
   unlocksLevels: [objectives2],
 };

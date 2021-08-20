@@ -5,7 +5,12 @@ import { objectives1 } from '../../../objectives/levels/server';
 
 const hubObjectives: LevelServer = {
   ...base,
-  trophies: [trophies.siegeRam, trophies.theViking, trophies.dragonHunter],
+  trophies: [
+    trophies.siegeRam,
+    trophies.theViking,
+    trophies.dragonHunter,
+    trophies.wrecking,
+  ],
   unlocksLevels: [objectives1],
 };
 

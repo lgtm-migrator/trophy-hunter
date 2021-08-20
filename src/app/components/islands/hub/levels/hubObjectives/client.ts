@@ -10,7 +10,12 @@ const hubObjectives: LevelClient = {
   ...base,
   Icon: ObjectivesIcon,
   Marker: ObjectivesMarker,
-  trophies: [trophies.siegeRam, trophies.theViking, trophies.dragonHunter],
+  trophies: [
+    trophies.siegeRam,
+    trophies.theViking,
+    trophies.dragonHunter,
+    trophies.wrecking,
+  ],
 };
 
 export default hubObjectives;
