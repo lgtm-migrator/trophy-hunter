@@ -266,7 +266,7 @@ export type ChampionKillEvent = {
   position: Position;
   timestamp: number;
   type: 'CHAMPION_KILL';
-  victimDamageDealt: {
+  victimDamageDealt?: {
     basic: boolean;
     magicDamage: number;
     name: string;

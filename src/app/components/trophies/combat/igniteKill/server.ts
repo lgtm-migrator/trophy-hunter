@@ -8,9 +8,9 @@ const igniteKill: TrophyServer = {
       (event) =>
         event.type === 'CHAMPION_KILL' &&
         event.killerId === participant.participantId &&
-        event.victimDamageDealt[event.victimDamageDealt.length - 1]
+        event.victimDamageReceived[event.victimDamageReceived.length - 1]
           .participantId === participant.participantId &&
-        event.victimDamageDealt[event.victimDamageDealt.length - 1]
+        event.victimDamageReceived[event.victimDamageReceived.length - 1]
           .spellName === 'summonerdot'
     );
     return Number(killWithIgnite);

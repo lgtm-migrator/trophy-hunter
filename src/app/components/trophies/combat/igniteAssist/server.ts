@@ -7,7 +7,7 @@ const igniteAssist: TrophyServer = {
     const assistWithIgnite = events.some(
       (event) =>
         event.type === 'CHAMPION_KILL' &&
-        event.victimDamageDealt.some(
+        event.victimDamageReceived.some(
           (damageDealt) =>
             damageDealt.participantId === participant.participantId &&
             damageDealt.spellName === 'summonerdot'

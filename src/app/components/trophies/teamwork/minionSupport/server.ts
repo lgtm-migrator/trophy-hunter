@@ -7,11 +7,11 @@ const minionSupport: TrophyServer = {
     const assistWithIgnite = events.some(
       (event) =>
         event.type === 'CHAMPION_KILL' &&
-        event.victimDamageDealt.some(
+        event.victimDamageReceived.some(
           (damageDealt) =>
             damageDealt.participantId === participant.participantId
         ) &&
-        event.victimDamageDealt.some(
+        event.victimDamageReceived.some(
           (damageDealt) => damageDealt.type === 'MINION'
         )
     );
