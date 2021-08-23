@@ -7,7 +7,7 @@ const objectives4: LevelServer = {
   ...base,
   trophies: [
     trophies.noxianWarfare,
-    trophies.omnismash,
+    // trophies.omnismash,
     trophies.pyromania,
     trophies.sigurd,
     trophies.stomp,

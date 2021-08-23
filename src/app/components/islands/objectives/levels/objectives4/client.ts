@@ -12,7 +12,7 @@ const objectives4: LevelClient = {
   Marker: ObjectivesMarker,
   trophies: [
     trophies.noxianWarfare,
-    trophies.omnismash,
+    // trophies.omnismash,
     trophies.pyromania,
     trophies.sigurd,
     trophies.stomp,

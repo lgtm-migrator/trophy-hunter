@@ -9,7 +9,7 @@ const hubObjectives: LevelServer = {
     trophies.siegeRam,
     trophies.theViking,
     trophies.dragonHunter,
-    trophies.wrecking,
+    // trophies.wrecking,
   ],
   unlocksLevels: [objectives1],
 };

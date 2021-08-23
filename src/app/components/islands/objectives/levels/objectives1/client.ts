@@ -15,7 +15,7 @@ const objectives1: LevelClient = {
     trophies.dragonSlayer,
     trophies.energized,
     trophies.neutralizer,
-    trophies.smashing,
+    // trophies.smashing,
   ],
 };
 
