@@ -11,6 +11,7 @@ const combat1: LevelClient = {
     trophies.doubleKill,
     trophies.firstBlood,
     trophies.flail,
+    trophies.igniteAssist,
     trophies.keyTargets,
     trophies.skullHunter,
     trophies.superiorPosition,

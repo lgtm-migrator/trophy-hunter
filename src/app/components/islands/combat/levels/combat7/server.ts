@@ -9,6 +9,7 @@ const combat7: LevelServer = {
     trophies.curse,
     trophies.darkBinding,
     trophies.dominus,
+    trophies.igniteKill,
     trophies.theWanderer,
     trophies.trophyHunterKing,
   ],

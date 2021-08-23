@@ -25,6 +25,8 @@ export { default as fullHouse } from './fullHouse/server';
 export { default as giantsBelt } from './giantsBelt/server';
 export { default as gloriousEvolution } from './gloriousEvolution/server';
 export { default as grimReaper } from './grimReaper/server';
+export { default as igniteAssist } from './igniteAssist/server';
+export { default as igniteKill } from './igniteKill/server';
 export { default as keyTargets } from './keyTargets/server';
 export { default as kitchenKnife } from './kitchenKnife/server';
 export { default as livingArtillery } from './livingArtillery/server';

@@ -11,6 +11,7 @@ const combat7: LevelClient = {
     trophies.curse,
     trophies.darkBinding,
     trophies.dominus,
+    trophies.igniteKill,
     trophies.theWanderer,
     trophies.trophyHunterKing,
   ],
