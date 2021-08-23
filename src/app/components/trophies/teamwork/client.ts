@@ -20,6 +20,7 @@ export { default as lifeAndDeath } from './lifeAndDeath/client';
 export { default as lightBringer } from './lightBringer/client';
 export { default as locusts } from './locusts/client';
 export { default as mercenary } from './mercenary/client';
+export { default as minionSupport } from './minionSupport/client';
 export { default as ninjas } from './ninjas/client';
 export { default as noxianArmy } from './noxianArmy/client';
 export { default as noxianShield } from './noxianShield/client';

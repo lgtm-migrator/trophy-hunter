@@ -5,6 +5,7 @@ import trophies from '../app/components/trophies/server';
 import { TrophyServer } from '../app/components/trophies/types';
 import { getAccountsCollection } from '../app/lib//accounts/server/collection';
 import { AccountTrophy } from '../app/lib/accounts';
+import { getTrophyStatsCollection } from '../app/lib/stats/server/collection';
 import { initMongoDatabase } from '../app/lib/utils/server/db';
 
 const trophyToAccountTrophy = (trophy: TrophyServer): AccountTrophy => ({
@@ -21,52 +22,59 @@ async function run() {
   const Accounts = await getAccountsCollection();
 
   const cursor = Accounts.find({});
-  while (await cursor.hasNext()) {
-    const account = await cursor.next();
-    const newTrophies: AccountTrophy[] = [];
+  const total = await cursor.count();
+  let count = 0;
+  let account = await cursor.next();
+  while (account) {
+    count++;
+    console.log(`Processing account ${count} of ${total}`);
+
+    const accountTrophies = account.trophies.filter(
+      (trophy) => !['wrecking', 'smashing', 'omnismash'].includes(trophy.name)
+    );
 
     let changed = false;
-    const hubObjectives = account.levels.find(
-      (level) => level.name === 'hubObjectives'
-    );
+    const combat1 = account.levels.find((level) => level.name === 'combat1');
     if (
-      hubObjectives &&
-      !account.trophies.some((trophy) => trophy.name === trophies.wrecking.name)
-    ) {
-      changed = true;
-      newTrophies.push(trophyToAccountTrophy(trophies.wrecking));
-      if (hubObjectives.status === 'completed') {
-        hubObjectives.status = 'unlocked';
-      }
-    }
-
-    const objectives1 = account.levels.find(
-      (level) => level.name === 'objectives1'
-    );
-    if (
-      objectives1 &&
-      !account.trophies.some((trophy) => trophy.name === trophies.smashing.name)
-    ) {
-      changed = true;
-      newTrophies.push(trophyToAccountTrophy(trophies.smashing));
-      if (objectives1.status === 'completed') {
-        objectives1.status = 'unlocked';
-      }
-    }
-
-    const objectives4 = account.levels.find(
-      (level) => level.name === 'objectives4'
-    );
-    if (
-      objectives4 &&
+      combat1 &&
       !account.trophies.some(
-        (trophy) => trophy.name === trophies.omnismash.name
+        (trophy) => trophy.name === trophies.igniteAssist.name
       )
     ) {
       changed = true;
-      newTrophies.push(trophyToAccountTrophy(trophies.omnismash));
-      if (objectives4.status === 'completed') {
-        objectives4.status = 'unlocked';
+      accountTrophies.push(trophyToAccountTrophy(trophies.igniteAssist));
+      if (combat1.status === 'completed') {
+        combat1.status = 'unlocked';
+      }
+    }
+
+    const combat7 = account.levels.find((level) => level.name === 'combat7');
+    if (
+      combat7 &&
+      !account.trophies.some(
+        (trophy) => trophy.name === trophies.igniteKill.name
+      )
+    ) {
+      changed = true;
+      accountTrophies.push(trophyToAccountTrophy(trophies.igniteKill));
+      if (combat7.status === 'completed') {
+        combat7.status = 'unlocked';
+      }
+    }
+
+    const hubTeamwork = account.levels.find(
+      (level) => level.name === 'hubTeamwork'
+    );
+    if (
+      hubTeamwork &&
+      !account.trophies.some(
+        (trophy) => trophy.name === trophies.minionSupport.name
+      )
+    ) {
+      changed = true;
+      accountTrophies.push(trophyToAccountTrophy(trophies.minionSupport));
+      if (hubTeamwork.status === 'completed') {
+        hubTeamwork.status = 'unlocked';
       }
     }
 
@@ -74,18 +82,22 @@ async function run() {
       await Accounts.updateOne(
         { _id: account._id },
         {
-          $addToSet: {
-            trophies: {
-              $each: newTrophies,
-            },
-          },
           $set: {
+            trophies: accountTrophies,
             levels: account.levels,
           },
         }
       );
     }
+
+    account = await cursor.next();
   }
+
+  await getTrophyStatsCollection().deleteMany({
+    trophyName: { $in: ['wrecking', 'smashing', 'omnismash'] },
+  });
+
   console.log('DONE');
+  process.exit();
 }
 run();

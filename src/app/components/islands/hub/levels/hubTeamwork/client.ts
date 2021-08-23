@@ -7,7 +7,12 @@ const hubTeamwork: LevelClient = {
   ...base,
   Icon: TeamworkIcon,
   Marker: TeamworkMarker,
-  trophies: [trophies.comradeInArms, trophies.feedThem, trophies.theElephant],
+  trophies: [
+    trophies.comradeInArms,
+    trophies.feedThem,
+    trophies.minionSupport,
+    trophies.theElephant,
+  ],
 };
 
 export default hubTeamwork;

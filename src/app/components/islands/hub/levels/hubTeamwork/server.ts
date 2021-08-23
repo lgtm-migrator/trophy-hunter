@@ -5,7 +5,12 @@ import { teamwork1 } from '../../../teamwork/levels/server';
 
 const hubTeamwork: LevelServer = {
   ...base,
-  trophies: [trophies.comradeInArms, trophies.feedThem, trophies.theElephant],
+  trophies: [
+    trophies.comradeInArms,
+    trophies.feedThem,
+    trophies.minionSupport,
+    trophies.theElephant,
+  ],
   unlocksLevels: [teamwork1],
 };
 
