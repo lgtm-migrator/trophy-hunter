@@ -5,7 +5,7 @@ const wanted: TrophyBase = {
   name: 'wanted',
   level: 'hubSkills',
   title: 'Wanted',
-  description: 'Have a bounty level of one or more',
+  description: 'Have a bounty level of one or more at the end of the match',
   category: 'skills',
   aramSupport: true,
 };
