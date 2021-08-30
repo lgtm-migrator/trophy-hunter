@@ -18,6 +18,10 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/build': {
+        target: 'http://localhost:3000',
+        rewrite: (path) => path.replace(/^\/build/, ''),
+      },
     },
   },
   root: resolve(__dirname, 'src/app'),
