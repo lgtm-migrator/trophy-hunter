@@ -20,4 +20,9 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };
