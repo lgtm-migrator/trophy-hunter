@@ -20,8 +20,12 @@ import MinimizeButton from './MinimizeButton';
 import ChangelogModal from '../guides/ChangelogModal';
 import { isAppUpdated } from '../../lib/overwolf';
 import { getLocalStorageItem } from '../../lib/utils/storage';
+import GitHub from '../icons/GitHub';
 
-const DiscordButtonLink = HeaderButton.withComponent('a');
+const ButtonLink = HeaderButton.withComponent('a');
+const ButtonLinkGitHub = styled(ButtonLink)`
+  padding: 6px;
+`;
 
 const WriteUsFeedback = styled.div`
   font-family: 'Roboto Mono', monospace;
@@ -80,9 +84,15 @@ const AppHeader: FC = () => {
             </WriteUsFeedback>
             <Grow />
           </ErrorBoundary>
-          <DiscordButtonLink href="https://discord.gg/NTZu8Px" target="_blank">
+          <ButtonLinkGitHub
+            href="https://github.com/lmachens/trophy-hunter"
+            target="_blank"
+          >
+            <GitHub />
+          </ButtonLinkGitHub>
+          <ButtonLink href="https://discord.gg/NTZu8Px" target="_blank">
             <Discord />
-          </DiscordButtonLink>
+          </ButtonLink>
           <HeaderButton
             active={modal === 'share'}
             onClick={openModal('share')}
