@@ -12,6 +12,7 @@ import { useAccount } from '../../contexts/account';
 import { apiEndoint } from '../../lib/utils/runtime';
 import MatchStats from '../matches/MatchStats';
 import { queues } from '../../lib/riot/queues';
+import { i18n } from '../../lib/i18n/i18n';
 
 type Props = {
   match?: HistoryMatch;
@@ -139,25 +140,29 @@ const Match = ({ match }: Props) => {
       />
       <div>
         <GameDate isLoading={!match}>
-          {match?.gameCreatedAt.toLocaleDateString('en-US', {
+          {match?.gameCreatedAt.toLocaleDateString(undefined, {
             month: 'long',
             day: 'numeric',
           })}
         </GameDate>
         <GameDuration isLoading={!match}>
-          {match && `${Math.floor(match.gameDuration / 60)}m`}{' '}
-          {match && `${match.gameDuration % 60}s`}
+          {match && `${Math.floor(match.gameDuration / 60000)}m`}{' '}
+          {match && `${Math.round((match.gameDuration / 1000) % 60)}s`}
         </GameDuration>
       </div>
       {match && (
         <div>
-          <Outcome win={match.win}>{match.win ? 'Victory' : 'Defeat'}</Outcome>
+          <Outcome win={match.win}>
+            {match.win ? i18n('Victory') : i18n('Defeat')}
+          </Outcome>
           <Queue>{queues[match.queueId]}</Queue>
         </div>
       )}
       {match && (
         <div>
-          <div>{match.trophyNames.length} Trophies</div>
+          <div>
+            {match.trophyNames.length} {i18n('Trophies')}
+          </div>
           <TrophyIcons trophyNames={match.trophyNames} />
         </div>
       )}
@@ -174,7 +179,7 @@ const Match = ({ match }: Props) => {
             />
           ))}
           {!match.allTrophiesProgress && (
-            <strong>Stats are available since v2.21.0</strong>
+            <strong>{i18n('Stats are available since v2.21.0')}</strong>
           )}
           {match.allTrophiesProgress && (
             <MatchStats allTrophiesProgress={match.allTrophiesProgress} />

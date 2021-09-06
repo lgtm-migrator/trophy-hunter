@@ -9,40 +9,41 @@ import * as teamworkTrophies from '../trophies/teamwork/client';
 import trophies from '../trophies/client';
 import TrophyProgress from './TrophyProgress';
 import { useTargetAccount } from '../../contexts/account';
+import { i18n } from '../../lib/i18n/i18n';
 
 const progressList = [
   {
-    title: 'Origin',
+    title: i18n('Origin'),
     category: 'hub',
     trophiesMax: Object.keys(hubTrophies).length,
   },
   {
-    title: 'Combat',
+    title: i18n('Combat'),
     category: 'combat',
     trophiesMax: Object.keys(combatTrophies).length,
   },
   {
-    title: 'Skills',
+    title: i18n('Skills'),
     category: 'skills',
     trophiesMax: Object.keys(skillsTrophies).length,
   },
   {
-    title: 'Teamwork',
+    title: i18n('Teamwork'),
     category: 'teamwork',
     trophiesMax: Object.keys(teamworkTrophies).length,
   },
   {
-    title: 'Objectives',
+    title: i18n('Objectives'),
     category: 'objectives',
     trophiesMax: Object.keys(objectivesTrophies).length,
   },
   {
-    title: 'Epic',
+    title: i18n('Epic'),
     category: 'epic',
     trophiesMax: Object.keys(epicTrophies).length,
   },
   {
-    title: 'Special',
+    title: i18n('Special'),
     category: 'special',
     trophiesMax: Object.keys(specialTrophies).length,
   },
@@ -65,7 +66,7 @@ const Summary = styled.div`
 
 const ProgressContainer = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 18px 1fr auto;
   background: #2b2a30;
   padding: 10px;
   font-size: 16px;
@@ -78,6 +79,12 @@ const ProgressContainer = styled.div`
   }
 `;
 
+const IslandTitle = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
 const HistoryOverview = () => {
   const account = useTargetAccount();
 
@@ -87,12 +94,12 @@ const HistoryOverview = () => {
 
   return (
     <Container>
-      <h3>Total trophies unlocked</h3>
+      <h3>{i18n('Total trophies unlocked')}</h3>
       <Summary>
         {progressList.map((item) => (
           <ProgressContainer key={item.category}>
             <TrophyProgress category={item.category} progress={100} max={100} />
-            <div>{item.title}</div>
+            <IslandTitle>{item.title}</IslandTitle>
             <div>
               {
                 completedTrophies.filter(

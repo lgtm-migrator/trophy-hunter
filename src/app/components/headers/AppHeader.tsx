@@ -20,6 +20,8 @@ import MinimizeButton from './MinimizeButton';
 import ChangelogModal from '../guides/ChangelogModal';
 import { isAppUpdated } from '../../lib/overwolf';
 import { getLocalStorageItem } from '../../lib/utils/storage';
+import { dict, i18n } from '../../lib/i18n/i18n';
+import LocaleModal from '../i18n/LocaleModal';
 import GitHub from '../icons/GitHub';
 
 const ButtonLink = HeaderButton.withComponent('a');
@@ -52,7 +54,12 @@ const InnerToolbar = styled.div`
   min-width: 440px;
 `;
 
-export type ModalName = 'feedback' | 'question' | 'share' | 'changelog';
+export type ModalName =
+  | 'feedback'
+  | 'question'
+  | 'share'
+  | 'changelog'
+  | 'locale';
 const AppHeader: FC = () => {
   const { loading, account } = useAccount();
   const [modal, setModal] = useState<ModalName>(null);
@@ -80,10 +87,17 @@ const AppHeader: FC = () => {
           <ErrorBoundary>
             <WriteUsFeedback onClick={openModal('feedback')}>
               <Feedback />
-              Write us a feedback
+              {i18n('Write us a feedback')}
             </WriteUsFeedback>
             <Grow />
           </ErrorBoundary>
+          <HeaderButton
+            active={modal === 'locale'}
+            onClick={openModal('locale')}
+            data-tooltip-id="locale"
+          >
+            <img src={`/build/flags/${dict.locale}.png`} alt="Locale" />
+          </HeaderButton>
           <ButtonLinkGitHub
             href="https://github.com/lmachens/trophy-hunter"
             target="_blank"
@@ -120,6 +134,7 @@ const AppHeader: FC = () => {
           onSelect={(modal) => setModal(modal)}
         />
       )}
+      {modal === 'locale' && <LocaleModal onClose={closeModal} />}
       {modal === 'changelog' && <ChangelogModal onClose={closeModal} />}
     </>
   );
