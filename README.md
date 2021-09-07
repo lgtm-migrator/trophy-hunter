@@ -6,7 +6,7 @@ This is your time to conquer the world! Begin your journey with us, hunt for new
 
 ## Features
 
-Each challenge island has 5 difficulty levels, from beginner to pro. Find the best for you, you may find that your emotional and intellectual skills improve along with your core abilities.
+Each challenge island has multiple difficulty levels, from beginner to pro. Find the best for you, you may find that your emotional and intellectual skills improve along with your core abilities.
 
 Trophy Hunter features
 
