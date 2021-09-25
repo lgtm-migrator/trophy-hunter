@@ -1,11 +1,15 @@
 import { TrophyServer } from '../../types';
-import base, { REQUIRED_MINUTES } from './base';
-import { minutesToSeconds } from '../../../../lib/utils/dates';
+import base from './base';
+import { millisecondsToMinutes } from '../../../../lib/utils/dates';
 
 const curse: TrophyServer = {
   ...base,
-  checkProgress: ({ participant }) => {
-    return participant.totalTimeCCDealt / minutesToSeconds(REQUIRED_MINUTES);
+  checkProgress: ({ participant, match }) => {
+    const gameDurationInMinutes = millisecondsToMinutes(
+      match.info.gameDuration
+    );
+    const ccPerMinute = participant.totalTimeCCDealt / gameDurationInMinutes;
+    return ccPerMinute / 4;
   },
 };
 
