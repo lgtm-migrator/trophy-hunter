@@ -12,7 +12,7 @@ const theElephant: TrophyServer = {
         : minutesToSeconds(SUMMONERS_RIFT_MINUTES);
     if (
       !participant.longestTimeSpentLiving &&
-      match.info.gameDuration >= requiredTimelimit * 1000
+      match.info.gameDuration >= requiredTimelimit
     ) {
       return 1;
     }

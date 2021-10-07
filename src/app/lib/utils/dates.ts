@@ -9,5 +9,6 @@ export const THREE_MINUTES = 3 * 60 * 1000;
 export const minutesToSeconds = (minutes: number): number => minutes * 60;
 export const millisecondsToMinutes = (milliseconds: number): number =>
   milliseconds / 1000 / 60;
+export const secondsToMinutes = (seconds: number): number => seconds / 60;
 export const minutesToMilliseconds = (minutes: number): number =>
   minutes * 60 * 1000;

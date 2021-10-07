@@ -9,7 +9,7 @@ const theTortoise: TrophyServer = {
       match.info.queueId === ARAM_HOWLING_ABYSS ? 1200 : 1800;
     if (
       !participant.longestTimeSpentLiving &&
-      match.info.gameDuration >= requiredTimelimit * 1000
+      match.info.gameDuration >= requiredTimelimit
     ) {
       return 1;
     }

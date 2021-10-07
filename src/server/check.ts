@@ -115,10 +115,12 @@ export const handlePostCheck = async (req: Request, res: Response) => {
         .end(`Game mode ${match.info.queueId} is not supported`);
     }
 
-    if (match.info.gameDuration < 300 * 1000) {
+    if (match.info.gameDuration < 5 * 60) {
       return res.json({
         trophyNames: [],
         unlockedIslandNames: [],
+        missionTrophyNames: [],
+        allTrophiesProgress: [],
       });
     }
 
@@ -380,6 +382,13 @@ export const handlePostCheck = async (req: Request, res: Response) => {
       });
     });
 
+    res.json({
+      trophyNames: completedTrophyNames,
+      unlockedIslandNames: unlockedIslandNames,
+      missionTrophyNames,
+      allTrophiesProgress,
+    });
+
     await addHistoryMatch({
       accountId: account._id,
       gameId: match.info.gameId,
@@ -389,13 +398,6 @@ export const handlePostCheck = async (req: Request, res: Response) => {
       gameDuration: match.info.gameDuration,
       gameCreatedAt: new Date(match.info.gameCreation),
       trophyNames: completedTrophyNames,
-      allTrophiesProgress,
-    });
-
-    res.json({
-      trophyNames: completedTrophyNames,
-      unlockedIslandNames: unlockedIslandNames,
-      missionTrophyNames,
       allTrophiesProgress,
     });
   } finally {

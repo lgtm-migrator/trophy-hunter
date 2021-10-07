@@ -146,8 +146,8 @@ const Match = ({ match }: Props) => {
           })}
         </GameDate>
         <GameDuration isLoading={!match}>
-          {match && `${Math.floor(match.gameDuration / 60000)}m`}{' '}
-          {match && `${Math.round((match.gameDuration / 1000) % 60)}s`}
+          {match && `${Math.floor(match.gameDuration / 60)}m`}{' '}
+          {match && `${Math.round(match.gameDuration % 60)}s`}
         </GameDuration>
       </div>
       {match && (
