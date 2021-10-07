@@ -29,52 +29,19 @@ async function run() {
     count++;
     console.log(`Processing account ${count} of ${total}`);
 
-    const accountTrophies = account.trophies.filter(
-      (trophy) => !['wrecking', 'smashing', 'omnismash'].includes(trophy.name)
-    );
+    const accountTrophies = [...account.trophies];
 
     let changed = false;
-    const combat1 = account.levels.find((level) => level.name === 'combat1');
-    if (
-      combat1 &&
-      !account.trophies.some(
-        (trophy) => trophy.name === trophies.igniteAssist.name
-      )
-    ) {
-      changed = true;
-      accountTrophies.push(trophyToAccountTrophy(trophies.igniteAssist));
-      if (combat1.status === 'completed') {
-        combat1.status = 'unlocked';
-      }
-    }
 
-    const combat7 = account.levels.find((level) => level.name === 'combat7');
+    const combat8 = account.levels.find((level) => level.name === 'combat8');
     if (
-      combat7 &&
-      !account.trophies.some(
-        (trophy) => trophy.name === trophies.igniteKill.name
-      )
+      combat8 &&
+      !account.trophies.some((trophy) => trophy.name === trophies.doom.name)
     ) {
       changed = true;
-      accountTrophies.push(trophyToAccountTrophy(trophies.igniteKill));
-      if (combat7.status === 'completed') {
-        combat7.status = 'unlocked';
-      }
-    }
-
-    const hubTeamwork = account.levels.find(
-      (level) => level.name === 'hubTeamwork'
-    );
-    if (
-      hubTeamwork &&
-      !account.trophies.some(
-        (trophy) => trophy.name === trophies.minionSupport.name
-      )
-    ) {
-      changed = true;
-      accountTrophies.push(trophyToAccountTrophy(trophies.minionSupport));
-      if (hubTeamwork.status === 'completed') {
-        hubTeamwork.status = 'unlocked';
+      accountTrophies.push(trophyToAccountTrophy(trophies.doom));
+      if (combat8.status === 'completed') {
+        combat8.status = 'unlocked';
       }
     }
 

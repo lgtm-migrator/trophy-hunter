@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import Ajv from 'ajv';
-import { sendToDiscord } from '../app/lib//feedback/server';
+import { sendToDiscord } from '../app/lib/feedback/server';
 
 export const handlePostFeedback = async (req: Request, res: Response) => {
   const ajv = new Ajv();

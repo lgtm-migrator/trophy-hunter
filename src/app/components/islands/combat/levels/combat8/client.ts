@@ -8,6 +8,7 @@ const combat8: LevelClient = {
   Icon: CombatIcon,
   Marker: CombatMarker,
   trophies: [
+    trophies.doom,
     trophies.sniper,
     trophies.gloriousEvolution,
     trophies.giantsBelt,

@@ -14,6 +14,7 @@ export { default as deadlyShadow } from './deadlyShadow/client';
 export { default as deadlyVenom } from './deadlyVenom/client';
 export { default as deathMarks } from './deathMarks/client';
 export { default as dominus } from './dominus/client';
+export { default as doom } from './doom/client';
 export { default as doubleKill } from './doubleKill/client';
 export { default as duelist } from './duelist/client';
 export { default as dwarfKing } from './dwarfKing/client';

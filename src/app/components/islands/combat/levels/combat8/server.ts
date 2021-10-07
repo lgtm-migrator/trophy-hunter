@@ -5,6 +5,7 @@ import trophies from '../../../../trophies/server';
 const combat8: LevelServer = {
   ...base,
   trophies: [
+    trophies.doom,
     trophies.sniper,
     trophies.gloriousEvolution,
     trophies.giantsBelt,
