@@ -5,7 +5,12 @@ import { epic1 } from '../../../epic/levels/server';
 
 const hubEpic: LevelServer = {
   ...base,
-  trophies: [trophies.darkness, trophies.sweetHoney, trophies.neverGiveUp],
+  trophies: [
+    trophies.darkness,
+    trophies.fertilizer,
+    trophies.sweetHoney,
+    trophies.neverGiveUp,
+  ],
   unlocksLevels: [epic1],
 };
 

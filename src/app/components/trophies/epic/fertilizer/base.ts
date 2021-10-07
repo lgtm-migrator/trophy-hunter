@@ -6,8 +6,9 @@ const fertilizer: TrophyBase = {
   name: 'fertilizer',
   level: 'hubEpic',
   title: i18n('Fertilizer'),
-  description: i18n('Reach level 10 before 15 minutes.'),
-  category: 'combat',
+  description: i18n('Reach level 10 before 15 minutes.\nARAM: level 12'),
+  category: 'epic',
+  aramSupport: true,
 };
 
 export default fertilizer;

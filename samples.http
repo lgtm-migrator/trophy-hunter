@@ -59,6 +59,8 @@ Content-Type: application/json
 GET {{baseUrl}}/champions/69/img
 
 
+
+
 ### Login
 POST {{baseUrl}}/login
 Content-Type: application/json

@@ -1,4 +1,5 @@
 export { default as darkness } from './darkness/server';
+export { default as fertilizer } from './fertilizer/server';
 export { default as firstBloodKing } from './firstBloodKing/server';
 export { default as mafiaBoss } from './mafiaBoss/server';
 export { default as neverGiveUp } from './neverGiveUp/server';

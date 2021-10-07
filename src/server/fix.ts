@@ -44,6 +44,19 @@ async function run() {
         combat8.status = 'unlocked';
       }
     }
+    const hubEpic = account.levels.find((level) => level.name === 'hubEpic');
+    if (
+      hubEpic &&
+      !account.trophies.some(
+        (trophy) => trophy.name === trophies.fertilizer.name
+      )
+    ) {
+      changed = true;
+      accountTrophies.push(trophyToAccountTrophy(trophies.fertilizer));
+      if (hubEpic.status === 'completed') {
+        hubEpic.status = 'unlocked';
+      }
+    }
 
     if (changed) {
       await Accounts.updateOne(

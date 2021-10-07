@@ -7,7 +7,12 @@ const hubEpic: LevelClient = {
   ...base,
   Icon: EpicIcon,
   Marker: EpicMarker,
-  trophies: [trophies.darkness, trophies.sweetHoney, trophies.neverGiveUp],
+  trophies: [
+    trophies.darkness,
+    trophies.fertilizer,
+    trophies.sweetHoney,
+    trophies.neverGiveUp,
+  ],
 };
 
 export default hubEpic;
