@@ -1,4 +1,5 @@
 import de from './de.json';
+import ru from './ru.json';
 
 const DEFAULT_LOCALE = 'en';
 type Dict = {
@@ -16,6 +17,11 @@ export const dicts: Dict[] = [
     locale: 'de',
     title: 'Deutsch',
     dict: de,
+  },
+  {
+    locale: 'ru',
+    title: 'Русский',
+    dict: ru,
   },
 ];
 export let dict: Dict;
