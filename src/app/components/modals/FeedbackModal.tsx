@@ -16,10 +16,6 @@ const Form = styled.form`
     margin-bottom: 10px;
   }
 
-  ${ModalButton} {
-    margin: 10px auto 0px auto;
-  }
-
   input,
   textarea {
     color: #eaeaea;
