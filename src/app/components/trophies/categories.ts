@@ -7,6 +7,7 @@ import TeamworkProgress from './teamwork/TeamworkProgress';
 import { FC } from 'react';
 import { ProgressProps, Category } from './types';
 import HubProgress from './hub/HubProgress';
+import { i18n } from '../../lib/i18n/i18n';
 
 export const categoriesMap: {
   [category in Category]: {
@@ -17,37 +18,37 @@ export const categoriesMap: {
 } = {
   hub: {
     value: 'hub',
-    label: 'Hub',
+    label: i18n('Hub'),
     Icon: HubProgress,
   },
   combat: {
     value: 'combat',
-    label: 'Combat',
+    label: i18n('Combat'),
     Icon: CombatProgress,
   },
   skills: {
     value: 'skills',
-    label: 'Skills',
+    label: i18n('Skills'),
     Icon: SkillsProgress,
   },
   teamwork: {
     value: 'teamwork',
-    label: 'Teamwork',
+    label: i18n('Teamwork'),
     Icon: TeamworkProgress,
   },
   objectives: {
     value: 'objectives',
-    label: 'Objectives',
+    label: i18n('Objectives'),
     Icon: ObjectivesProgress,
   },
   epic: {
     value: 'epic',
-    label: 'Epic',
+    label: i18n('Epic'),
     Icon: EpicProgress,
   },
   special: {
     value: 'special',
-    label: 'Special',
+    label: i18n('Special'),
     Icon: SpecialProgress,
   },
 };
