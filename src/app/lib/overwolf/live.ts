@@ -36,6 +36,8 @@ const resetStates = () => {
   unsetLocalStorageItem(PROGRESS);
   unsetLocalStorageItem(LIVE);
   unsetLocalStorageItem(TROPHY_PROGRESS);
+  unsetLocalStorageItem('notifications');
+
   activeTrophies = null;
   live = {
     activePlayer: null,
