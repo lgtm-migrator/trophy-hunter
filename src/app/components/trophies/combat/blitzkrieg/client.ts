@@ -1,7 +1,7 @@
 import { TrophyClient } from '../../types';
 import base from './base';
 
-const fertilizer: TrophyClient = {
+const blitzkrieg: TrophyClient = {
   ...base,
   checkLive: ({ activePlayer, events, account }) => {
     if (!events.length || activePlayer.level >= 3) {
@@ -17,4 +17,4 @@ const fertilizer: TrophyClient = {
   },
 };
 
-export default fertilizer;
+export default blitzkrieg;
