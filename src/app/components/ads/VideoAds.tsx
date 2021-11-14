@@ -37,7 +37,7 @@ const VideoAds: FC<VideoAdsProps> = ({
   autoRefresh = false,
 }) => {
   const containerRef = useRef(null);
-  const adsVisible = useRef<boolean>(undefined);
+  const adsVisible = useRef<boolean>(true);
   const [owAd, setOwAd] = useState<OwAd>(null);
   const [timeoutStart, setTimeoutStart] = useState<number>(null);
 
