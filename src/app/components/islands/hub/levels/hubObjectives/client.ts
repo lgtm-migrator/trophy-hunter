@@ -14,6 +14,7 @@ const hubObjectives: LevelClient = {
     trophies.siegeRam,
     trophies.theViking,
     trophies.dragonHunter,
+    trophies.shelly,
     // trophies.wrecking,
   ],
 };

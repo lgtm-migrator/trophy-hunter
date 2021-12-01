@@ -33,17 +33,20 @@ async function run() {
 
     let changed = false;
 
-    const combat8 = account.levels.find((level) => level.name === 'combat8');
+    const hubObjectives = account.levels.find(
+      (level) => level.name === 'hubObjectives'
+    );
     if (
-      combat8 &&
-      !account.trophies.some((trophy) => trophy.name === trophies.doom.name)
+      hubObjectives &&
+      !account.trophies.some((trophy) => trophy.name === trophies.shelly.name)
     ) {
       changed = true;
-      accountTrophies.push(trophyToAccountTrophy(trophies.doom));
-      if (combat8.status === 'completed') {
-        combat8.status = 'unlocked';
+      accountTrophies.push(trophyToAccountTrophy(trophies.shelly));
+      if (hubObjectives.status === 'completed') {
+        hubObjectives.status = 'unlocked';
       }
     }
+
     const hubEpic = account.levels.find((level) => level.name === 'hubEpic');
     if (
       hubEpic &&
