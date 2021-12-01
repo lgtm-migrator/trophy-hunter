@@ -28,6 +28,10 @@ export interface Account {
   rank?: number;
 }
 
+export interface AccountClient extends Account {
+  _id: string;
+}
+
 export interface SeasonAccount {
   season: string;
   summoner: Summoner;

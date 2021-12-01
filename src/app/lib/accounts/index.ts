@@ -1,19 +1,19 @@
-import { Account, Credential, Ranking, SeasonAccount } from './types';
+import { AccountClient, Credential, Ranking, SeasonAccount } from './types';
 import { postJSON, getJSON } from '../utils/request';
 import { log } from '../logs';
 import { TrophyProgress } from '../matches';
 export * from './types';
 
 export const postLogin = (credential: Credential) => {
-  return postJSON<Account>('/api/login', credential);
+  return postJSON<AccountClient>('/api/login', credential);
 };
 
 export const getAccount = () => {
-  return getJSON<Account>('/api/account');
+  return getJSON<AccountClient>('/api/account');
 };
 
 export const getPublicAccount = ({ summonerName, platformId }: Credential) => {
-  return getJSON<Account>(
+  return getJSON<AccountClient>(
     `/api/public-account?summonerName=${summonerName}&platformId=${platformId}`
   );
 };

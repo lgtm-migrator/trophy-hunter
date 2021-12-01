@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { Account } from '../../lib/accounts';
+import { AccountClient } from '../../lib/accounts';
 
 interface AccountContextValue {
-  account: Account;
+  account: AccountClient;
   loading: boolean;
 }
 
