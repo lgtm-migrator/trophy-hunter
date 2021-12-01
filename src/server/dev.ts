@@ -10,7 +10,7 @@ import { allTrophies, aramTrophies } from '../app/components/trophies/server';
 import { newAccount } from '../app/lib//accounts/server';
 import {
   getAllEvents,
-  getParticipantByAccount,
+  getParticipantBySummonerName,
 } from '../app/lib//riot/helpers';
 import {
   ARAM_HOWLING_ABYSS,
@@ -86,7 +86,10 @@ export const handlePostDev = async (req: Request, res: Response) => {
   const timeLabel = `Check ${matchId} of ${account.summoner.name} ${account.summoner.platformId}`;
   console.time(timeLabel);
 
-  const participant = getParticipantByAccount(match, account);
+  const participant = getParticipantBySummonerName(
+    match,
+    account.summoner.name
+  );
   if (!participant) {
     log(`Participant not found ${matchId} ${account.summoner.name}`);
     return res.status(403).end('Participant not found');

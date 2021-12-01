@@ -8,7 +8,6 @@ export interface Credential {
 }
 
 export interface Account {
-  _id?: string;
   summoner: Summoner;
   authTokens: {
     token: string;

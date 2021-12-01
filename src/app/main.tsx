@@ -14,7 +14,7 @@ import SpreadTheLove from './components/help/SpreadTheLove';
 import EnableOverlayModal from './components/modals/EnableOverlayModal';
 import Profile from './components/trophies/Profile';
 import App from './App';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useQueryParams from './hooks/useQueryParams';
 
 const subpages: {
@@ -48,7 +48,7 @@ const subpages: {
 };
 
 const Main = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const queryParams = useQueryParams();
   const subpage = queryParams.get('subpage') || 'map';
   const tool = queryParams.get('tool');
@@ -63,7 +63,7 @@ const Main = () => {
       }
     });
 
-    history.push(`/?${queryParams.toString()}`);
+    navigate(`/?${queryParams.toString()}`);
   };
 
   const { Main, Aside, hideProfile } = subpages[subpage];

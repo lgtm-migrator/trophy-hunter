@@ -1,3 +1,5 @@
+import type { ObjectId } from 'mongodb';
+
 export type TrophyProgress = {
   trophyName: string;
   progress:
@@ -9,7 +11,7 @@ export type TrophyProgress = {
 };
 
 export type HistoryMatch = {
-  accountId: string;
+  accountId: ObjectId;
   gameId: number;
   championId: number;
   win: boolean;

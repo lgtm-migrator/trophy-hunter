@@ -8,7 +8,6 @@ import {
   MatchTimelineFrame,
   ParticipantFrame,
 } from './types';
-import { Account } from '../accounts';
 import {
   FIFTEEN_MINUTES,
   THIRTY_MINUTES,
@@ -148,12 +147,12 @@ export const isInEnemyTurretRange = (
   });
 };
 
-export const getParticipantByAccount = (
+export const getParticipantBySummonerName = (
   match: Match,
-  account: Account
+  summonerName: string
 ): Participant => {
   return match.info.participants.find(
-    (participant) => participant.summonerName === account.summoner.name
+    (participant) => participant.summonerName === summonerName
   );
 };
 

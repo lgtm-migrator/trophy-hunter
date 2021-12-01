@@ -1,10 +1,10 @@
-import type { Filter } from 'mongodb';
+import type { Filter, ObjectId } from 'mongodb';
 import type { HistoryMatch } from '../types';
 import { getMatchesCollection } from './collection';
 
 const HISTORY_LIMIT = 20;
 export const getHistoryMatches = async (
-  accountId: string,
+  accountId: ObjectId,
   onlyWithTrophies: boolean,
   page: number
 ) => {
