@@ -10,6 +10,7 @@ import SummonerSearch from './SummonerSearch';
 import useQueryParams from '../../hooks/useQueryParams';
 import { Link } from 'react-router-dom';
 import { i18n } from '../../lib/i18n/i18n';
+import { Tooltip } from '../tooltip';
 
 const TopPlayers = styled.div`
   display: flex;
@@ -91,6 +92,11 @@ const Leaderboard = () => {
             </Button>
           </Link>
         ))}
+        <Tooltip text="Next season starts January 8" placement="top">
+          <Button off as="a">
+            Season 12
+          </Button>
+        </Tooltip>
       </nav>
       <TopPlayers>
         <PlayerCard size="L" rank={1} ranking={first} />
