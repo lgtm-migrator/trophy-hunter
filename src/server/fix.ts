@@ -47,17 +47,19 @@ async function run() {
       }
     }
 
-    const hubEpic = account.levels.find((level) => level.name === 'hubEpic');
+    const objectives1 = account.levels.find(
+      (level) => level.name === 'objectives1'
+    );
     if (
-      hubEpic &&
+      objectives1 &&
       !account.trophies.some(
-        (trophy) => trophy.name === trophies.fertilizer.name
+        (trophy) => trophy.name === trophies.shellyAndShirley.name
       )
     ) {
       changed = true;
-      accountTrophies.push(trophyToAccountTrophy(trophies.fertilizer));
-      if (hubEpic.status === 'completed') {
-        hubEpic.status = 'unlocked';
+      accountTrophies.push(trophyToAccountTrophy(trophies.shellyAndShirley));
+      if (objectives1.status === 'completed') {
+        objectives1.status = 'unlocked';
       }
     }
 

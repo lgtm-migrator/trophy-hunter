@@ -12,6 +12,7 @@ export { default as noxianWarfare } from './noxianWarfare/server';
 // export { default as omnismash } from './omnismash/server';
 export { default as pyromania } from './pyromania/server';
 export { default as shelly } from './shelly/server';
+export { default as shellyAndShirley } from './shellyAndShirley/server';
 export { default as siegeMaster } from './siegeMaster/server';
 export { default as siegeRam } from './siegeRam/server';
 export { default as sigurd } from './sigurd/server';
