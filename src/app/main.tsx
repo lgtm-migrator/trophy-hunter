@@ -16,6 +16,8 @@ import Profile from './components/trophies/Profile';
 import App from './App';
 import { useNavigate } from 'react-router-dom';
 import useQueryParams from './hooks/useQueryParams';
+import SeasonModal from './components/modals/SeasonModal';
+import usePersistentState from './hooks/usePersistentState';
 
 const subpages: {
   [subpage: string]: {
@@ -53,6 +55,10 @@ const Main = () => {
   const subpage = queryParams.get('subpage') || 'map';
   const tool = queryParams.get('tool');
   useCenterWindow();
+  const [sawSeason12Modal, setSawSeason12Modal] = usePersistentState(
+    'sawSeason12Modal',
+    false
+  );
 
   const setQueryParam = (newQuery: { [key: string]: string | undefined }) => {
     Object.entries(newQuery).forEach(([key, value]) => {
@@ -92,6 +98,9 @@ const Main = () => {
       <Main onQueryChange={setQueryParam} />
       <GarenaModal />
       <EnableOverlayModal />
+      {!sawSeason12Modal && (
+        <SeasonModal onClose={() => setSawSeason12Modal(true)} />
+      )}
     </GameLayout>
   );
 };

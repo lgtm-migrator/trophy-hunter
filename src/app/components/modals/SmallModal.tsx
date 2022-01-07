@@ -7,7 +7,7 @@ const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 200;
+  z-index: 400;
 `;
 
 const Container = styled.div<{ left: number; top: number }>`

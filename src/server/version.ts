@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { getJSON } from '../app/lib//utils/request';
 
-export const currentSeason = '11';
+export const currentSeason = '12';
 const cachedVersion = {
   timestamp: 0,
   promise: null,

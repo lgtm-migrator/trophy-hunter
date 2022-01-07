@@ -80,7 +80,7 @@ const Leaderboard = () => {
     );
 
   const [first, second, third] = data?.pages[0]?.data || [];
-  const seasons = ['10', '11'];
+  const seasons = ['10', '11', '12'];
   return (
     <Container>
       <nav>
@@ -92,11 +92,6 @@ const Leaderboard = () => {
             </Button>
           </Link>
         ))}
-        <Tooltip text="Next season starts January 8" placement="top">
-          <Button off as="a">
-            Season 12
-          </Button>
-        </Tooltip>
       </nav>
       <TopPlayers>
         <PlayerCard size="L" rank={1} ranking={first} />

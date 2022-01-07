@@ -8,7 +8,7 @@ const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   background: rgba(43, 42, 48, 0.9);
-  z-index: 200;
+  z-index: 400;
   display: flex;
   align-items: center;
   justify-content: center;
