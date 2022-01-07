@@ -10,7 +10,6 @@ import SummonerSearch from './SummonerSearch';
 import useQueryParams from '../../hooks/useQueryParams';
 import { Link } from 'react-router-dom';
 import { i18n } from '../../lib/i18n/i18n';
-import { Tooltip } from '../tooltip';
 
 const TopPlayers = styled.div`
   display: flex;
