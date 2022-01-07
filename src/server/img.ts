@@ -12,6 +12,7 @@ export const handleGetImg = async (req: Request, res: Response) => {
   if (!champion) {
     return res.status(404).end('Not found');
   }
+  res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
   res.setHeader('Cache-Control', 'max-age=180');
   const version = await getRecentVersion();
   res.redirect(
