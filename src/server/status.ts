@@ -4,7 +4,6 @@ import {
   LOL_ID,
   LEAGUE_LAUNCHER_ID,
   INTERESTED_IN_LAUNCHER_FEATURES,
-  INTERESTED_IN_LEAGUE_FEATURES,
 } from '../app/lib/overwolf/constants';
 
 type State = 0 | 1 | 2 | 3;
@@ -53,21 +52,23 @@ export const handleGetStatus = async (_req: Request, res: Response) => {
     getEventStatus(LOL_ID),
     getEventStatus(LEAGUE_LAUNCHER_ID),
   ]);
-  const leagueIssues = leagueStatus.features.filter(
-    (feature) =>
-      INTERESTED_IN_LEAGUE_FEATURES.includes(feature.name) &&
-      feature.state !== 1
+  const issues = [];
+  const matchState = leagueStatus.features.find(
+    (feature) => feature.name === 'matchState'
   );
+  if (matchState) {
+    const matchId = matchState.keys.find((key) => key.name === 'matchId');
+    if (matchId && matchId.state !== 1) {
+      issues.push('matchId');
+    }
+  }
+
   const launcherIssues = launcherStatus.features.filter(
     (feature) =>
       INTERESTED_IN_LAUNCHER_FEATURES.includes(feature.name) &&
       feature.state !== 1
   );
 
-  const issues = [];
-  if (leagueIssues.length > 0) {
-    issues.push('league');
-  }
   if (launcherIssues.length > 0) {
     issues.push('launcher');
   }

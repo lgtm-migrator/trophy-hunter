@@ -195,10 +195,7 @@ const handleLiveClientData = (liveClientData: {
   }
 };
 
-const handleGameInfo = (gameInfo: {
-  matchStarted?: 'true' | 'false';
-  matchId?: string;
-}) => {
+const handleGameInfo = (gameInfo: { matchId?: string }) => {
   if (gameInfo.matchId) {
     live.matchId = gameInfo.matchId;
   }
