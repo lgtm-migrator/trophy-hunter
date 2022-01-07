@@ -191,6 +191,26 @@ export const createSeasonAccountsCollection = async () => {
           trophiesCompleted: {
             bsonType: 'number',
           },
+          missions: {
+            bsonType: 'array',
+            items: {
+              bsonType: 'object',
+              properties: {
+                missionId: {
+                  bsonType: 'string',
+                },
+                completedTrophyNames: {
+                  bsonType: 'array',
+                  items: {
+                    bsonType: 'string',
+                  },
+                },
+              },
+            },
+          },
+          missionTrophiesCompleted: {
+            bsonType: 'number',
+          },
         },
         required: ['islands', 'levels', 'trophies', 'trophiesCompleted'],
       },

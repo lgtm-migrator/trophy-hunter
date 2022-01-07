@@ -42,6 +42,11 @@ export interface SeasonAccount {
   lastGameIds: number[];
   trophiesCompleted: number;
   rank?: number;
+  missions?: {
+    missionId: ObjectId;
+    completedTrophyNames: string[];
+  }[];
+  missionTrophiesCompleted?: number;
 }
 
 export interface AccountIsland {
