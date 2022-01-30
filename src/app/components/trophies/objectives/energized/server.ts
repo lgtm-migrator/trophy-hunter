@@ -13,7 +13,9 @@ const energized: TrophyServer = {
 
     const buildingKills = events.filter(
       (event) =>
-        event.type === 'BUILDING_KILL' && event.teamId === participant.teamId
+        event.type === 'BUILDING_KILL' &&
+        (event.killerId === participant.participantId ||
+          event.assistingParticipantIds?.includes(participant.participantId))
     );
 
     const baronKills = events.filter(
