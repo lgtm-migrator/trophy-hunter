@@ -48,29 +48,33 @@ const getEventStatus = async (gameId: number): Promise<EventStatus> => {
 };
 
 export const handleGetStatus = async (_req: Request, res: Response) => {
-  const [leagueStatus, launcherStatus] = await Promise.all([
-    getEventStatus(LOL_ID),
-    getEventStatus(LEAGUE_LAUNCHER_ID),
-  ]);
   const issues = [];
-  const matchState = leagueStatus.features.find(
-    (feature) => feature.name === 'matchState'
-  );
-  if (matchState) {
-    const matchId = matchState.keys.find((key) => key.name === 'matchId');
-    if (matchId && matchId.state !== 1) {
-      issues.push('matchId');
+  try {
+    const [leagueStatus, launcherStatus] = await Promise.all([
+      getEventStatus(LOL_ID),
+      getEventStatus(LEAGUE_LAUNCHER_ID),
+    ]);
+    const matchState = leagueStatus.features.find(
+      (feature) => feature.name === 'matchState'
+    );
+    if (matchState) {
+      const matchId = matchState.keys.find((key) => key.name === 'matchId');
+      if (matchId && matchId.state !== 1) {
+        issues.push('matchId');
+      }
     }
-  }
 
-  const launcherIssues = launcherStatus.features.filter(
-    (feature) =>
-      INTERESTED_IN_LAUNCHER_FEATURES.includes(feature.name) &&
-      feature.state !== 1
-  );
+    const launcherIssues = launcherStatus.features.filter(
+      (feature) =>
+        INTERESTED_IN_LAUNCHER_FEATURES.includes(feature.name) &&
+        feature.state !== 1
+    );
 
-  if (launcherIssues.length > 0) {
-    issues.push('launcher');
+    if (launcherIssues.length > 0) {
+      issues.push('launcher');
+    }
+  } catch (error) {
+    console.warn(error);
   }
   res.setHeader('Cache-Control', 'max-age=180');
   res.json(issues);
