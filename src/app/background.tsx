@@ -247,13 +247,15 @@ const Background = () => {
     if (leagueRunning) {
       log('League is running');
       isPlayingSupportedGame().then((playingSupportedGame) => {
-        if (autoLaunch) {
-          if (playingSupportedGame) {
-            log(`Playing a supported game ${playingSupportedGame}`);
+        if (playingSupportedGame) {
+          log(`Playing a supported game ${playingSupportedGame}`);
+          runLiveCheck(account, playingSupportedGame);
+          if (autoLaunch) {
             toggleInGameWindow(true);
-            runLiveCheck(account, playingSupportedGame);
-          } else {
-            log(`Not playing a supported game ${playingSupportedGame}`);
+          }
+        } else {
+          log(`Not playing a supported game ${playingSupportedGame}`);
+          if (autoLaunch) {
             openWindow('not_supported');
           }
         }

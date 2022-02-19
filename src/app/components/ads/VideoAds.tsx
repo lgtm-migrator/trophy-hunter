@@ -79,7 +79,7 @@ const VideoAds: FC<VideoAdsProps> = ({
 
       const runningGameInfo = await getRunningGameInfo();
       const leagueIsRunning = isLeagueRunning(runningGameInfo);
-      log(`leagueIsRunning: ${leagueIsRunning} ingame: ${ingame}`);
+
       if (leagueIsRunning) {
         if (ingame) {
           if (runningGameInfo.isInFocus) {
