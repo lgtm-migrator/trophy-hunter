@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { FC, useEffect } from 'react';
+import { getLocalStorageItem } from '../../lib/utils/storage';
 
 const Container = styled.div`
   height: 100vh;
@@ -10,13 +11,18 @@ const Container = styled.div`
 
 const NotificationContainer: FC = (props) => {
   useEffect(() => {
+    const notificationsOnRightSide = getLocalStorageItem<boolean>(
+      'notificationsOnRightSide',
+      false
+    );
+
     overwolf.games.getRunningGameInfo((game) => {
       overwolf.windows.getCurrentWindow((result) => {
-        overwolf.windows.changePosition(
-          result.window.id,
-          30,
-          game.logicalHeight - 173
-        );
+        const left = notificationsOnRightSide
+          ? game.logicalWidth - 30 - 440
+          : 30;
+        const top = game.logicalHeight - 173;
+        overwolf.windows.changePosition(result.window.id, left, top);
       });
     });
   }, []);
