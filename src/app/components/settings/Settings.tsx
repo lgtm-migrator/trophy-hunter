@@ -50,6 +50,8 @@ const Settings: FC = () => {
     'trophyCompleted',
     true
   );
+  const [notificationsOnRightSide, setNotificationsOnRightSide] =
+    usePersistentState('notificationsOnRightSide', false);
   const [changelogUpdates, setChangelogUpdates] = usePersistentState(
     'changelogUpdates',
     true
@@ -104,6 +106,15 @@ const Settings: FC = () => {
               checked={trophyCompleted}
               onChange={(event) => {
                 setTrophyCompleted(event.target.checked);
+              }}
+            />
+          </Setting>
+          <Setting>
+            {i18n('Move to right side')}
+            <Toggle
+              checked={notificationsOnRightSide}
+              onChange={(event) => {
+                setNotificationsOnRightSide(event.target.checked);
               }}
             />
           </Setting>
