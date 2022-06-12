@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Squid from '../icons/Squid';
 import usePersistentState from '../../hooks/usePersistentState';
 import { i18n } from '../../lib/i18n/i18n';
+import { closeCurrentWindow } from '../../lib/overwolf';
 
 const Container = styled.div`
   display: grid;
@@ -22,7 +23,7 @@ const GarenaModal = () => {
   }
 
   return (
-    <Modal title="Garena is not supported">
+    <Modal title="Garena is not supported" onClose={closeCurrentWindow}>
       <Container>
         <Text>
           {i18n(
