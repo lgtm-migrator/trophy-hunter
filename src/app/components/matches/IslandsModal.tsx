@@ -87,7 +87,7 @@ const IslandsModal: FC<IslandsModalProps> = ({
       <LottieContainer>
         <Lottie
           options={{
-            loop: true,
+            loop: false,
             autoplay: true,
             animationData: animationData,
             rendererSettings: {

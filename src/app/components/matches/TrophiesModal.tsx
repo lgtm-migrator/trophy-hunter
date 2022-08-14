@@ -103,7 +103,7 @@ const TrophiesModal: FC<TrophiesModalProps> = ({
         <LottieContainer>
           <Lottie
             options={{
-              loop: true,
+              loop: false,
               autoplay: true,
               animationData: animationData,
               rendererSettings: {
