@@ -1,18 +1,7 @@
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
 import { FC } from 'react';
 import { MarkerProps } from './types';
 import MarkerTooltip from './MarkerTooltip';
-
-const blink = keyframes`
-  from, to {
-    r: 0;
-  }
-
-  50% {
-    r: 7;
-  }
-`;
 
 const Circle = styled.circle<MarkerProps>`
   opacity: ${(props) => (props.status === 'locked' ? 0.4 : 1)};
@@ -32,13 +21,15 @@ const PseudoCircle = styled.circle`
 `;
 
 const FocusCircle = styled.circle`
-  fill: inherit;
+  fill: #ffffff;
   opacity: 0.2;
   stroke-width: 0;
 `;
 
-const BlinkCircle = styled(FocusCircle)`
-  animation: ${blink} 2s ease infinite;
+const ActiveCircle = styled.circle`
+  fill: inherit;
+  opacity: 0.2;
+  stroke-width: 0;
 `;
 
 const Path = styled.path`
@@ -72,7 +63,7 @@ const Marker: FC<MarkerProps> = ({
           >
             <PseudoCircle cx="7" cy="7" r="7" />
             {status === 'active' && !focused && (
-              <BlinkCircle cx="7" cy="7" r="7" />
+              <ActiveCircle cx="7" cy="7" r="7" />
             )}
             {focused && <FocusCircle cx="7" cy="7" r="7" />}
             {status === 'unlocked' && <HalfCircle />}
