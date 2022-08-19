@@ -23,6 +23,7 @@ import { getLocalStorageItem } from '../../lib/utils/storage';
 import { dict, i18n } from '../../lib/i18n/i18n';
 import LocaleModal from '../i18n/LocaleModal';
 import GitHub from '../icons/GitHub';
+import Confetti from '../confetti/Confetti';
 
 const ButtonLink = HeaderButton.withComponent('a');
 const ButtonLinkGitHub = styled(ButtonLink)`
@@ -77,6 +78,7 @@ const AppHeader: FC = () => {
 
   return (
     <>
+      <Confetti />
       <Header>
         <ErrorBoundary>
           <Status />

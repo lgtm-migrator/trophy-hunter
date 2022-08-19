@@ -3,17 +3,15 @@ import styled from '@emotion/styled';
 import Modal, { ModalBody } from '../modals/Modal';
 import TrophyList from '../trophies/TrophyList';
 import trophies from '../trophies/client';
-import Lottie from 'react-lottie';
-import animationData from './confetti.json';
 import Squid from '../icons/Squid';
 import TrophyListItem from '../trophies/TrophyListItem';
-import LottieContainer from './LottieContainer';
 import FancyButton from '../common/FancyButton';
 import { useAccount } from '../../contexts/account';
 import { TrophyProgress } from '../../lib/matches';
 import MatchStats from './MatchStats';
 import Toggle from '../common/Toggle';
 import { i18n } from '../../lib/i18n/i18n';
+import Confetti from '../confetti/Confetti';
 
 const ListItem = styled(TrophyListItem)`
   &:hover {
@@ -99,22 +97,7 @@ const TrophiesModal: FC<TrophiesModalProps> = ({
           <MatchStats allTrophiesProgress={allTrophiesProgress} />
         </TrophyList>
       )}
-      {trophyNames.length > 0 && (
-        <LottieContainer>
-          <Lottie
-            options={{
-              loop: false,
-              autoplay: true,
-              animationData: animationData,
-              rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice',
-              },
-            }}
-            height={500}
-            width={666}
-          />
-        </LottieContainer>
-      )}
+      {trophyNames.length > 0 && <Confetti />}
       <FancyButton onClick={onClose}>{i18n('Continue')}</FancyButton>
     </CenteredModal>
   );
