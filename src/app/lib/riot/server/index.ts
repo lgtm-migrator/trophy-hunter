@@ -37,7 +37,7 @@ const platformIdToRegion = {
   LA1: 'americas',
   LA2: 'americas',
   NA1: 'americas',
-  OC1: 'americas',
+  OC1: 'sea',
   RU: 'europe',
   TR1: 'europe',
 };
