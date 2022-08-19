@@ -1,8 +1,5 @@
 import { FC, useState } from 'react';
 import Modal from '../modals/Modal';
-import Lottie from 'react-lottie';
-import animationData from './confetti.json';
-import LottieContainer from './LottieContainer';
 import {
   CombatIsland,
   SkillsIsland,
@@ -16,6 +13,7 @@ import Slide from '../icons/Slide';
 import styled from '@emotion/styled';
 import { useAccount } from '../../contexts/account';
 import { i18n } from '../../lib/i18n/i18n';
+import Confetti from '../confetti/Confetti';
 
 const islands = {
   hub: { Component: HubIsland, title: 'Hub Island' },
@@ -84,20 +82,7 @@ const IslandsModal: FC<IslandsModalProps> = ({
           ))}
         </SlidesActions>
       </Container>
-      <LottieContainer>
-        <Lottie
-          options={{
-            loop: false,
-            autoplay: true,
-            animationData: animationData,
-            rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice',
-            },
-          }}
-          height={500}
-          width={666}
-        />
-      </LottieContainer>
+      <Confetti />
     </Modal>
   );
 };
