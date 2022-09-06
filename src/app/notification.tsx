@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import styled from '@emotion/styled';
 import { useState, useEffect } from 'react';
 import TrophyListItem from './components/trophies/TrophyListItem';
@@ -19,7 +19,7 @@ getAppVersion().then((version) => log(`Running ${version}`));
 
 const ListItem = styled(TrophyListItem)`
   background-image: ${(props) =>
-    `url(./notifications/${props.trophy.island}.png)`};
+    `url(/notifications/${props.trophy.island}.png)`};
   background-position: bottom right;
   background-repeat: no-repeat;
   flex-grow: 1;
@@ -76,11 +76,11 @@ const Notification = () => {
   );
 };
 
-ReactDOM.render(
+const root = createRoot(document.querySelector('#root'));
+root.render(
   <StrictMode>
     <App>
       <Notification />
     </App>
-  </StrictMode>,
-  document.querySelector('#root')
+  </StrictMode>
 );

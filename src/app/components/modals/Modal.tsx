@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import CloseIcon from '../icons/Close';
 import Backdrop from '../common/Backdrop';
 import Checkbox from '../common/Checkbox';
@@ -51,6 +51,7 @@ const DontShowAgain = styled.aside`
 `;
 
 interface ModalProps {
+  children: ReactNode;
   onClose?(): void;
   title?: string;
   onShowAgainChange?(showAgain: boolean): void;

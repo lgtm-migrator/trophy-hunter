@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, ReactNode, useEffect, useRef, useState } from 'react';
 
 const Backdrop = styled.div`
   position: fixed;
@@ -24,6 +24,7 @@ const Title = styled.h3`
 `;
 
 interface SmallModalProps {
+  children: ReactNode;
   onClose(): void;
   title?: string;
   targetId: string;

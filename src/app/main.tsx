@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import GameLayout, { GameChildProps } from './layouts/GameLayout';
 import GarenaModal from './components/modals/GarenaModal';
 import useCenterWindow from './hooks/useCenterWindow';
@@ -105,11 +105,11 @@ const Main = () => {
   );
 };
 
-ReactDOM.render(
+const root = createRoot(document.querySelector('#root'));
+root.render(
   <StrictMode>
     <App>
       <Main />
     </App>
-  </StrictMode>,
-  document.querySelector('#root')
+  </StrictMode>
 );

@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import AccountContext from './AccountContext';
 import { getAccount } from '../../lib/accounts';
 import { useQuery } from 'react-query';
 
-const AccountProvider: FC = ({ children }) => {
+const AccountProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { data: account, status } = useQuery('account', getAccount);
 
   return (

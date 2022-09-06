@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FC, useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { getLocalStorageItem } from '../../lib/utils/storage';
 
 const Container = styled.div`
@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const NotificationContainer: FC = (props) => {
+const NotificationContainer: FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     const notificationsOnRightSide = getLocalStorageItem<boolean>(
       'notificationsOnRightSide',
@@ -27,7 +27,7 @@ const NotificationContainer: FC = (props) => {
     });
   }, []);
 
-  return <Container {...props} />;
+  return <Container>{children}</Container>;
 };
 
 export default NotificationContainer;

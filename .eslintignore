@@ -8,7 +8,9 @@
 
 # production
 /dist/server
-/dist/overwolf/build
+/dist/overwolf/*
+!/dist/overwolf/manifest.json
+!/dist/overwolf/icons
 
 # misc
 .DS_Store

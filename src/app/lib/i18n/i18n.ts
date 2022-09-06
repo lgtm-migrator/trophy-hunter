@@ -6,22 +6,26 @@ type Dict = {
   locale: string;
   title: string;
   dict: { [key: string]: string };
+  imgSrc: string;
 };
 export const dicts: Dict[] = [
   {
     locale: 'en',
     title: 'English',
     dict: {},
+    imgSrc: '/flags/en.png',
   },
   {
     locale: 'de',
     title: 'Deutsch',
     dict: de,
+    imgSrc: '/flags/de.png',
   },
   {
     locale: 'ru',
     title: 'Русский',
     dict: ru,
+    imgSrc: '/flags/ru.png',
   },
 ];
 export let dict: Dict;

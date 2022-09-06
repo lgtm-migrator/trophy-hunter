@@ -48,8 +48,7 @@ const LocaleModal: FC<LocaleModalProps> = ({ onClose }) => {
               location.reload();
             }}
           >
-            <img src={`/build/flags/${dict.locale}.png`} alt="Locale" />{' '}
-            {dict.title}
+            <img src={dict.imgSrc} alt="Locale" /> {dict.title}
           </li>
         ))}
       </List>

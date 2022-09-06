@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import overwolf, {
   isLeagueLaunched,
   isLeagueRunning,
@@ -267,11 +267,11 @@ const Background = () => {
   return <></>;
 };
 
-ReactDOM.render(
+const root = createRoot(document.querySelector('#root'));
+root.render(
   <StrictMode>
     <App>
       <Background />
     </App>
-  </StrictMode>,
-  document.querySelector('#root')
+  </StrictMode>
 );
