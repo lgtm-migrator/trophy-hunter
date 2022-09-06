@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import { i18n } from '../../lib/i18n/i18n';
 import { error as logError } from '../../lib/logs';
 import { closeCurrentWindow } from '../../lib/overwolf';
@@ -13,6 +13,7 @@ const grid = css`
 `;
 
 interface Props {
+  children: ReactNode;
   grid?: boolean;
   autoClose?: boolean;
 }

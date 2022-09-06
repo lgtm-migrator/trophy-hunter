@@ -41,7 +41,7 @@ const Profile = () => {
         src={
           version && account && account.summoner.profileIconId !== undefined
             ? `https://ddragon.leagueoflegends.com/cdn/${version.riot}/img/profileicon/${account.summoner.profileIconId}.png`
-            : `/build/unknown.png`
+            : '/unknown.png'
         }
         alt=""
       />

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import overwolf from '../../lib/overwolf';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 const Header = styled.header`
   display: flex;
@@ -12,7 +12,7 @@ const Header = styled.header`
   z-index: 300;
 `;
 
-const MovableHeader: FC = ({ children }) => {
+const MovableHeader: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <Header
       onMouseDown={() =>

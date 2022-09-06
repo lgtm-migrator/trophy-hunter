@@ -69,7 +69,7 @@ const EnableOverlayModal = () => {
           )}
         </Text>
         <a href="overwolf://settings">{i18n('Open Settings')}</a>
-        <img src={`/build/overlay.jpg`} alt="Overwolf overlay settings" />
+        <img src="/overlay.jpg" alt="Overwolf overlay settings" />
         <a
           href="https://support.overwolf.com/en/support/solutions/articles/9000178795-overwolf-game-settings"
           target="_blank"

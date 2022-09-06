@@ -144,7 +144,7 @@ const AfterMatch: FC<AfterMatchProps> = ({ className }) => {
       {showModal && loading && (
         <Backdrop onClick={() => setShowModal(false)}>
           <Container>
-            <img src={`/build/logo.png`} />
+            <img src={`/logo.png`} />
             <Message>{i18n('Loading Trophies...')}</Message>
           </Container>
         </Backdrop>

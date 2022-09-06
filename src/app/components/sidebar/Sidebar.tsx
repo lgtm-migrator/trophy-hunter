@@ -51,12 +51,12 @@ const Sidebar: FC<SidebarProps> = ({ activeTool, onToolClick }) => {
     <Aside>
       <Link to="/?subpage=map">
         <SidebarLink active>
-          <img src={`/build/league-of-legends.png`} />
+          <img src="/league-of-legends.png" />
         </SidebarLink>
       </Link>
       <Grow />
       <ToolButton
-        icon={<img src={`/build/trophies.png`} />}
+        icon={<img src="/trophies.png" />}
         active={activeTool === 'collection'}
         onClick={() => onToolClick('collection')}
       />

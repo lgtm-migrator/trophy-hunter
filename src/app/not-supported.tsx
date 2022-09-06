@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import styled from '@emotion/styled';
 import { closeCurrentWindow, getAppVersion } from './lib/overwolf';
 import Timer from './components/common/Timer';
@@ -13,7 +13,7 @@ import { i18n } from './lib/i18n/i18n';
 getAppVersion().then((version) => log(`Running ${version}`));
 
 const Message = styled.div`
-  background-image: url(./notifications/all.png);
+  background-image: url(/notifications/all.png);
   background-position: bottom center;
   background-repeat: no-repeat;
   flex-grow: 1;
@@ -41,11 +41,11 @@ const NotSupported = () => {
   );
 };
 
-ReactDOM.render(
+const root = createRoot(document.querySelector('#root'));
+root.render(
   <StrictMode>
     <App>
       <NotSupported />
     </App>
-  </StrictMode>,
-  document.querySelector('#root')
+  </StrictMode>
 );

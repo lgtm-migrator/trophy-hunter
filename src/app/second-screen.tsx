@@ -1,5 +1,5 @@
 import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import styled from '@emotion/styled';
 import overwolf, {
   closeCurrentWindow,
@@ -334,11 +334,11 @@ const SecondScreen = () => {
   );
 };
 
-ReactDOM.render(
+const root = createRoot(document.querySelector('#root'));
+root.render(
   <StrictMode>
     <App>
       <SecondScreen />
     </App>
-  </StrictMode>,
-  document.querySelector('#root')
+  </StrictMode>
 );

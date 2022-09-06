@@ -18,11 +18,11 @@
     "start_window": "background",
     "windows": {
       "background": {
-        "file": "build/background.html",
+        "file": "background.html",
         "is_background_page": true
       },
       "desktop": {
-        "file": "build/index.html",
+        "file": "index.html",
         "desktop_only": true,
         "native_window": true,
         "resizable": true,
@@ -42,7 +42,7 @@
         "keep_window_location": true
       },
       "in_game": {
-        "file": "build/second-screen.html",
+        "file": "second-screen.html",
         "in_game_only": true,
         "focus_game_takeover": "ReleaseOnHidden",
         "focus_game_takeover_release_hotkey": "showhide",
@@ -62,7 +62,7 @@
         "keep_window_location": true
       },
       "second_screen": {
-        "file": "build/second-screen.html",
+        "file": "second-screen.html",
         "desktop_only": true,
         "disable_hardware_acceleration": true,
         "native_window": true,
@@ -84,7 +84,7 @@
         "use_os_windowing": true
       },
       "notification": {
-        "file": "build/notification.html",
+        "file": "notification.html",
         "in_game_only": true,
         "resizable": false,
         "transparent": true,
@@ -110,7 +110,7 @@
         "mute": true
       },
       "not_supported": {
-        "file": "build/not-supported.html",
+        "file": "not-supported.html",
         "resizable": false,
         "transparent": true,
         "clickthrough": true,

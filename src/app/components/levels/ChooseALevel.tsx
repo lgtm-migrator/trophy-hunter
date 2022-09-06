@@ -15,7 +15,7 @@ const Container = styled.aside`
 const ChooseALevel: FC = () => {
   return (
     <Container>
-      <img src={`/build/select.svg`} />
+      <img src={`/select.svg`} />
       <h3>{i18n('Choose a level')}</h3>
       <p>{i18n('to see full trophy description and progress')}</p>
     </Container>

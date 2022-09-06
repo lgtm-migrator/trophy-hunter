@@ -3,8 +3,6 @@ dotenv.config();
 
 import express, { RequestHandler } from 'express';
 import cookieParser from 'cookie-parser';
-import fs from 'fs';
-import https from 'https';
 import compression from 'compression';
 import helmet from 'helmet';
 
@@ -46,7 +44,7 @@ app.use((req, res, next) => {
   res.setHeader(
     'Access-Control-Allow-Origin',
     req.hostname === 'localhost'
-      ? 'http://localhost:3000'
+      ? 'http://localhost:5173'
       : `overwolf-extension://${process.env.OVERWOLF_EXTENSION_ID}`
   );
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -76,21 +74,7 @@ app.get('/api/version', handleGetVersion);
 
 initMongoDatabase().then(() => {
   console.log('Database connected');
-  if (process.env.NODE_ENV === 'production') {
-    app.listen(PORT, () => {
-      console.log(`Production server listening at https://localhost:${PORT}`);
-    });
-  } else {
-    const httpsServer = https.createServer(
-      {
-        key: fs.readFileSync('./certs/localhost.key'),
-        cert: fs.readFileSync('./certs/localhost.crt'),
-      },
-      app
-    );
-
-    httpsServer.listen(PORT, () => {
-      console.log(`Development server listening at https://localhost:${PORT}`);
-    });
-  }
+  app.listen(PORT, () => {
+    console.log(`Production server listening at https://localhost:${PORT}`);
+  });
 });

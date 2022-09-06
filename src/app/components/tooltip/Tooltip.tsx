@@ -8,9 +8,10 @@ import {
   useEffect,
   useCallback,
 } from 'react';
-import ReactDOM from 'react-dom';
+
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { createPortal } from 'react-dom';
 
 type Placement = 'right' | 'bottom' | 'bottomRight' | 'top' | 'topLeft';
 
@@ -121,28 +122,6 @@ const Tooltip: FC<TooltipProps> = ({
 
   const showTarget = useCallback(
     (target) => {
-      if (!containerNode.current) {
-        const tooltip = document.createElement('div');
-        document.body.appendChild(tooltip);
-        bodyChildNode.current = tooltip;
-        ReactDOM.render(
-          <Container
-            ref={containerNode}
-            isVisible={visible || isVisible}
-            left={left}
-            top={top}
-            placement={placement}
-            className={className}
-            targetId={targetId}
-            pointerEvents={pointerEvents}
-            onClick={onClick}
-          >
-            {title && <Title>{title}</Title>}
-            {text && <div>{text}</div>}
-          </Container>,
-          bodyChildNode.current
-        );
-      }
       const { x, y, width, height } = target.getBoundingClientRect();
 
       const { offsetHeight: containerHeight, offsetWidth: containerWidth } =
@@ -214,29 +193,6 @@ const Tooltip: FC<TooltipProps> = ({
     };
   }, []);
 
-  useEffect(() => {
-    if (!bodyChildNode.current) {
-      return;
-    }
-    ReactDOM.render(
-      <Container
-        ref={containerNode}
-        isVisible={visible || isVisible}
-        left={left}
-        top={top}
-        placement={placement}
-        className={className}
-        targetId={targetId}
-        pointerEvents={pointerEvents}
-        onClick={onClick}
-      >
-        {title && <Title>{title}</Title>}
-        {text && <div>{text}</div>}
-      </Container>,
-      bodyChildNode.current
-    );
-  }, [left, top, visible, isVisible, placement, className, title, text]);
-
   return (
     <>
       {children &&
@@ -244,6 +200,23 @@ const Tooltip: FC<TooltipProps> = ({
           onMouseEnter: handleMouseEnter,
           onMouseLeave: handleMouseLeave,
         })}
+      {createPortal(
+        <Container
+          ref={containerNode}
+          isVisible={visible || isVisible}
+          left={left}
+          top={top}
+          placement={placement}
+          className={className}
+          targetId={targetId}
+          pointerEvents={pointerEvents}
+          onClick={onClick}
+        >
+          {title && <Title>{title}</Title>}
+          {text && <div>{text}</div>}
+        </Container>,
+        document.body
+      )}
     </>
   );
 };

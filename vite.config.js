@@ -28,8 +28,7 @@ export default defineConfig({
   base: './',
   build: {
     target: 'esnext',
-    outDir: resolve(__dirname, 'dist/overwolf/build'),
-    emptyOutDir: true,
+    outDir: resolve(__dirname, 'dist/overwolf'),
     rollupOptions: {
       input: {
         background: resolve(__dirname, 'src/app/background.html'),
@@ -39,8 +38,5 @@ export default defineConfig({
         main: resolve(__dirname, 'src/app/index.html'),
       },
     },
-  },
-  esbuild: {
-    jsxInject: `import React from 'react'`,
   },
 });
