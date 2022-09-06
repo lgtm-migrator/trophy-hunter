@@ -19,7 +19,9 @@ export const handleGetAccount = async (req: Request, res: Response) => {
   if (!account) {
     res.setHeader(
       'Set-Cookie',
-      `authToken=${authToken};path=/;Max-Age=0;HttpOnly;SameSite=None;Secure`
+      `authToken=${authToken};path=/;Max-Age=0;HttpOnly;SameSite=None;${
+        process.env.NODE_ENV === 'development' ? '' : 'Secure'
+      }`
     );
 
     return res.status(401).end('Unauthorized');

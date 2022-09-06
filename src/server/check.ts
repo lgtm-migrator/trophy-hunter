@@ -82,7 +82,9 @@ export const handlePostCheck = async (req: Request, res: Response) => {
       log(`Account not found ${authToken}`);
       res.setHeader(
         'Set-Cookie',
-        `authToken=${authToken};Max-Age=0;SameSite=None;Secure`
+        `authToken=${authToken};Max-Age=0;SameSite=None;${
+          process.env.NODE_ENV === 'development' ? '' : 'Secure'
+        }`
       );
       return res.status(401).end('Unauthorized');
     }
