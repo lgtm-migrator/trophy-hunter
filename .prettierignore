@@ -23,6 +23,3 @@ yarn-error.log*
 
 # cache
 .eslintcache
-
-# ssl
-certs
