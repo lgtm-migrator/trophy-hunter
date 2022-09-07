@@ -6,7 +6,10 @@ const scrounger: TrophyServer = {
   ...base,
   checkProgress: ({ account, participant }) => {
     const trophyProgress = getTrophyProgress(account, 'scrounger');
-    return participant.objectivesStolen + trophyProgress;
+    return (
+      (participant.objectivesStolenAssists + participant.objectivesStolen) / 3 +
+      trophyProgress
+    );
   },
 };
 
