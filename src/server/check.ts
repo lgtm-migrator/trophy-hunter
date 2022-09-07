@@ -83,7 +83,7 @@ export const handlePostCheck = async (req: Request, res: Response) => {
       res.setHeader(
         'Set-Cookie',
         `authToken=${authToken};Max-Age=0;SameSite=None;${
-          process.env.NODE_ENV === 'development' ? '' : 'Secure'
+          process.env.NODE_ENV === 'production' ? 'Secure' : ''
         }`
       );
       return res.status(401).end('Unauthorized');

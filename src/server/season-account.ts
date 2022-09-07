@@ -25,7 +25,7 @@ export const handleGetSeasonAccount = async (req: Request, res: Response) => {
     res.setHeader(
       'Set-Cookie',
       `authToken=${authToken};path=/;Max-Age=0;HttpOnly;SameSite=None;${
-        process.env.NODE_ENV === 'development' ? '' : 'Secure'
+        process.env.NODE_ENV === 'production' ? 'Secure' : ''
       }`
     );
 

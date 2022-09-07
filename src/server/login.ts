@@ -72,13 +72,12 @@ export const handlePostLogin = async (req: Request, res: Response) => {
   if (!account.ok) {
     throw account.lastErrorObject;
   }
-
   res.setHeader(
     'Set-Cookie',
     `authToken=${authToken};path=/;Max-Age=${
       ONE_YEAR / 1000
     };HttpOnly;SameSite=None;${
-      process.env.NODE_ENV === 'development' ? '' : 'Secure'
+      process.env.NODE_ENV === 'production' ? 'Secure' : ''
     }`
   );
   res.json(account.value);
