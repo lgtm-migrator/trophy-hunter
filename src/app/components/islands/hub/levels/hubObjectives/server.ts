@@ -9,6 +9,7 @@ const hubObjectives: LevelServer = {
     trophies.siegeRam,
     trophies.theViking,
     trophies.dragonHunter,
+    trophies.scroungerAssistent,
     trophies.shelly,
     // trophies.wrecking,
   ],

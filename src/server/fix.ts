@@ -5,7 +5,6 @@ import trophies from '../app/components/trophies/server';
 import { TrophyServer } from '../app/components/trophies/types';
 import { getAccountsCollection } from '../app/lib//accounts/server/collection';
 import { AccountTrophy } from '../app/lib/accounts';
-import { getTrophyStatsCollection } from '../app/lib/stats/server/collection';
 import { initMongoDatabase } from '../app/lib/utils/server/db';
 
 const trophyToAccountTrophy = (trophy: TrophyServer): AccountTrophy => ({
@@ -38,10 +37,12 @@ async function run() {
     );
     if (
       hubObjectives &&
-      !account.trophies.some((trophy) => trophy.name === trophies.shelly.name)
+      !account.trophies.some(
+        (trophy) => trophy.name === trophies.scroungerAssistent.name
+      )
     ) {
       changed = true;
-      accountTrophies.push(trophyToAccountTrophy(trophies.shelly));
+      accountTrophies.push(trophyToAccountTrophy(trophies.scroungerAssistent));
       if (hubObjectives.status === 'completed') {
         hubObjectives.status = 'unlocked';
       }
@@ -53,11 +54,11 @@ async function run() {
     if (
       objectives1 &&
       !account.trophies.some(
-        (trophy) => trophy.name === trophies.shellyAndShirley.name
+        (trophy) => trophy.name === trophies.scrounger.name
       )
     ) {
       changed = true;
-      accountTrophies.push(trophyToAccountTrophy(trophies.shellyAndShirley));
+      accountTrophies.push(trophyToAccountTrophy(trophies.scrounger));
       if (objectives1.status === 'completed') {
         objectives1.status = 'unlocked';
       }
@@ -77,10 +78,6 @@ async function run() {
 
     account = await cursor.next();
   }
-
-  await getTrophyStatsCollection().deleteMany({
-    trophyName: { $in: ['wrecking', 'smashing', 'omnismash'] },
-  });
 
   console.log('DONE');
   process.exit();
