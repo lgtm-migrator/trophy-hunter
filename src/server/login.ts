@@ -72,16 +72,17 @@ export const handlePostLogin = async (req: Request, res: Response) => {
   if (!account.ok) {
     throw account.lastErrorObject;
   }
-
   res.setHeader(
     'Set-Cookie',
     `authToken=${authToken};path=/;Max-Age=${
       ONE_YEAR / 1000
-    };HttpOnly;SameSite=None;Secure`
+    };HttpOnly;SameSite=None;${
+      process.env.NODE_ENV === 'production' ? 'Secure' : ''
+    }`
   );
   res.json(account.value);
 
-  if (oldAuthToken) {
+  if (oldAuthToken && account.value) {
     try {
       const { accountId } = jwt.verify(oldAuthToken, process.env.JWT_SECRET);
 

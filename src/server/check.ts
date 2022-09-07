@@ -82,7 +82,9 @@ export const handlePostCheck = async (req: Request, res: Response) => {
       log(`Account not found ${authToken}`);
       res.setHeader(
         'Set-Cookie',
-        `authToken=${authToken};Max-Age=0;SameSite=None;Secure`
+        `authToken=${authToken};Max-Age=0;SameSite=None;${
+          process.env.NODE_ENV === 'production' ? 'Secure' : ''
+        }`
       );
       return res.status(401).end('Unauthorized');
     }
@@ -128,8 +130,8 @@ export const handlePostCheck = async (req: Request, res: Response) => {
 
     const now = Date.now();
 
-    const completedTrophyNames = [];
-    const unlockedIslandNames = [];
+    const completedTrophyNames: string[] = [];
+    const unlockedIslandNames: string[] = [];
 
     const participant = getParticipantBySummonerName(
       match,
@@ -146,9 +148,9 @@ export const handlePostCheck = async (req: Request, res: Response) => {
     const accountIslands = [...account.islands];
     const accountTrophies = [...account.trophies];
 
-    const activeMission = await getMissionsCollection().findOne({
+    const activeMission = (await getMissionsCollection().findOne({
       active: true,
-    });
+    }))!;
 
     let accountMission = account.missions.find(
       (mission) => mission.missionId.toString() === activeMission._id.toString()
@@ -162,10 +164,10 @@ export const handlePostCheck = async (req: Request, res: Response) => {
     }
     const missionTrophyNames: string[] = [];
     activeMission.trophyNames.forEach((trophyName) => {
-      if (accountMission.completedTrophyNames.includes(trophyName)) {
+      if (accountMission!.completedTrophyNames.includes(trophyName)) {
         return;
       }
-      const trophy = allTrophies.find((trophy) => trophy.name === trophyName);
+      const trophy = allTrophies.find((trophy) => trophy.name === trophyName)!;
       const result = trophy.checkProgress({
         match,
         timeline,
@@ -179,7 +181,7 @@ export const handlePostCheck = async (req: Request, res: Response) => {
         typeof result === 'number' ? { progress: result } : result;
       if (progress >= 0.999) {
         missionTrophyNames.push(trophyName);
-        accountMission.completedTrophyNames.push(trophyName);
+        accountMission!.completedTrophyNames.push(trophyName);
       }
     });
     if (missionTrophyNames.length > 0) {
@@ -212,7 +214,7 @@ export const handlePostCheck = async (req: Request, res: Response) => {
       trophiesToCheck.forEach((trophy) => {
         let accountTrophy: AccountTrophy = accountTrophies.find(
           (accountTrophy) => accountTrophy.name === trophy.name
-        );
+        )!;
         if (!accountTrophy) {
           accountTrophy = {
             name: trophy.name,
@@ -328,7 +330,7 @@ export const handlePostCheck = async (req: Request, res: Response) => {
       }
       const island = accountIslands.find(
         (island) => island.name === level.island
-      );
+      )!;
       island.status = 'done';
     });
 

@@ -285,6 +285,7 @@ export const isPlayingSupportedGame = async (): Promise<false | number> => {
 
         const { lobby_info: lobbyInfo, game_flow: gameFlow } = info.res;
         if (!gameFlow || !lobbyInfo) {
+          log(`[getInfo] gameFlow or lobbyInfo is no set`);
           return resolve(false);
         }
 

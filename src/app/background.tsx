@@ -79,11 +79,19 @@ const Background = () => {
       openWindow('desktop');
     }
 
+    const refreshLeagueLauncherRunning = () => {
+      overwolf.games.launchers.getRunningLaunchersInfo((res) => {
+        if (res.success) {
+          setLeagueLauncherRunning(isLeagueLauncherRunning(res.launchers));
+        }
+      });
+    };
+
     const handleLauncherLaunched = (
       launcher: overwolf.games.launchers.LauncherInfo
     ) => {
       if (Math.floor(launcher.id / 10) === LEAGUE_LAUNCHER_ID) {
-        setLeagueLauncherRunning(true);
+        refreshLeagueLauncherRunning();
       }
     };
 
@@ -91,18 +99,14 @@ const Background = () => {
       launcher: overwolf.games.launchers.LauncherInfo
     ) => {
       if (Math.floor(launcher.id / 10) === LEAGUE_LAUNCHER_ID) {
-        setLeagueLauncherRunning(false);
+        refreshLeagueLauncherRunning();
       }
     };
 
     overwolf.games.launchers.onLaunched.addListener(handleLauncherLaunched);
     overwolf.games.launchers.onTerminated.addListener(handleLauncherTerminated);
 
-    overwolf.games.launchers.getRunningLaunchersInfo((res) => {
-      if (res.success) {
-        setLeagueLauncherRunning(isLeagueLauncherRunning(res.launchers));
-      }
-    });
+    refreshLeagueLauncherRunning();
 
     const handleGameInfoUpdated = (
       res: overwolf.games.GameInfoUpdatedEvent
@@ -131,7 +135,7 @@ const Background = () => {
             toggleInGameWindow(true);
             runLiveCheck(account, playingSupportedGame);
           } else {
-            log(`Not playing a supported game ${playingSupportedGame}`);
+            log(`Not playing a supported game`);
             openWindow('not_supported');
           }
         } else {
