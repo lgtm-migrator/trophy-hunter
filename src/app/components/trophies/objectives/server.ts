@@ -11,6 +11,8 @@ export { default as neutralizer } from './neutralizer/server';
 export { default as noxianWarfare } from './noxianWarfare/server';
 // export { default as omnismash } from './omnismash/server';
 export { default as pyromania } from './pyromania/server';
+export { default as scrounger } from './scrounger/server';
+export { default as scroungerAssistent } from './scroungerAssistent/server';
 export { default as shelly } from './shelly/server';
 export { default as shellyAndShirley } from './shellyAndShirley/server';
 export { default as siegeMaster } from './siegeMaster/server';
